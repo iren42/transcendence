@@ -20,7 +20,8 @@
 								pong.clearLayer(pong.ballPaddlesLayer);
 								pong.moveBall();
 								pong.movePaddles();
-								pong.collideWithBall();
+								pong.detectCollisionWithBall();
+								pong.score();
 								pong.displayBall();
 								pong.displayPaddles();
 								requestAnimId = window.requestAnimationFrame(main); // rappel de main au prochain rafraîchissement de la page
