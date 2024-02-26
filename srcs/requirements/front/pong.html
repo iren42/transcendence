@@ -9,6 +9,7 @@
 	<script>
 		(function () {
 					let requestAnimId;
+					const framePerSecond = 60;
 
 					let initialisation = function() {
 								pong.init();
@@ -17,13 +18,7 @@
 
 					// un cycle d'affichage = un passage dans main()
 					const main = function() {
-								pong.clearLayer(pong.ballPaddlesLayer);
-								pong.moveBall();
-								pong.movePaddles();
-								pong.detectCollisionWithBall();
-								pong.score();
-								pong.displayBall();
-								pong.displayPaddles();
+								setInterval(pong.animate(), 1000 / framePerSecond);
 								requestAnimId = window.requestAnimationFrame(main); // rappel de main au prochain rafraîchissement de la page
 							}
 

@@ -19,31 +19,32 @@ const pong = {
 		posX : 700 / 2,
 		posY : 400 / 2,
 		speed : 1,
-		directionX : 1, // is 1 when goesRight, is -1 when goesLeft
-		directionY : 1, // is 1 when goesDown, is -1 when goesUp
-		velocityX : 5,
-		velocityY : 5,
-		move : function(angle)
+		velocityX : 3,
+		velocityY : 3,
+		bounceOffWall : function()
 		{
-			this.posX += this.directionX * this.speed;
-			this.posY += this.directionY * this.speed;
-		},
-		bounce : function()
-		{
-			if ( this.posX + this.width > pong.groundWidth || this.posX < 0 )
-				this.directionX *= -1;
 			if ( this.posY + this.height > pong.groundHeight || this.posY < 0  )
-				this.directionY *= -1;  
+				this.velocityY *= -1;  
+			if ( this.posX + this.width > pong.groundWidth || this.posX < 0  )
+				this.velocityX *= -1;  
 		},
 
-		detectCollision : function(anotherItem)
+		detectCollision : function(item)
 		{
-			if (!(this.posX > anotherItem.posX + anotherItem.width
-				|| this.posX + this.width < anotherItem.posX
-				|| this.posY > anotherItem.posY + anotherItem.height
-				|| this.posY + this.height < anotherItem.posY))
+			if (this.posX + this.width >= item.posX 
+				&& this.posX <= item.posX + item.width
+				&& this.posY + this.height >= item.posY 
+				&& this.posY <= item.posY + item.height
+			)
+			{
 				return (true);
+			}
 			return (false);
+		},
+		move : function()
+		{
+			this.posX += this.velocityX;
+			this.posY += this.velocityY;
 		}
 	},
 
@@ -98,6 +99,17 @@ const pong = {
 		this.displayPaddles();
 		this.initKeyboard(pong.control.onKeyDown, pong.control.onKeyUp);
 	},
+	animate : function()
+	{
+		this.clearLayer(this.ballPaddlesLayer);
+		this.moveBall();
+		this.movePaddles();
+		this.detectCollisionWithBall();
+		this.updateScore();
+		this.displayBall();
+		this.displayPaddles();
+
+	},
 
 	// key controls for paddles
 	initKeyboard : function(onKeyDownFunction, onKeyUpFunction) 
@@ -107,8 +119,8 @@ const pong = {
 	},
 	displayScore : function(scorePlayer1, scorePlayer2)
 	{
-		pong.display.drawTextInLayer(this.scoreLayer, this.scorePlayer1, "30px Arial", "#FF0000", this.groundWidth / 2 - 50, 70);
-		pong.display.drawTextInLayer(this.scoreLayer, this.scorePlayer2 ,"30px Arial", "#FF0000", this.groundWidth / 2  + 15, 70);
+		pong.display.drawTextInLayer(this.scoreLayer, this.scorePlayer1, "30px Arial", "#FF0000", 40, 30);
+		pong.display.drawTextInLayer(this.scoreLayer, this.scorePlayer2 ,"30px Arial", "#FF0000", this.groundWidth / 2 + this.netWidth + 40, 30);
 	},
 	displayBall : function()
 	{
@@ -128,32 +140,32 @@ const pong = {
 	randomizeBallDirection()
 	{
 		if ((Math.floor(Math.random() * 2)) % 2)
-			this.ball.directionX = -1;
-		else
-			this.ball.directionX = 1;
+			this.ball.velocityX *= -1;
 	},
 	centerBall : function()
 	{
 		this.ball.posX = this.groundWidth / 2;
 		this.ball.posY = this.groundHeight / 2;
 	},
-	score : function()
+	updateScore : function()
 	{
-			// player1 gagne 1 point
+		// player1 gagne 1 point
 		if (pong.ball.posX + pong.ball.width >= this.groundWidth)
 		{
 			this.scorePlayer1++;
 			// ball se dirige vers le gagnant
-			this.ball.directionX = -1;
+			if (this.ball.velocityX > 0)
+				this.ball.velocityX *= -1;
 			this.centerBall();
 			this.clearLayer(this.scoreLayer);
 			this.displayScore();
 		}
 
-		else if (pong.ball.posX == 0)
+		else if (pong.ball.posX <= 0)
 		{
 			this.scorePlayer2++;
-			this.ball.directionX = 1;
+			if (this.ball.velocityX < 0)
+				this.ball.velocityX *= -1;
 			this.centerBall();
 			this.clearLayer(this.scoreLayer);
 			this.displayScore();
@@ -164,12 +176,12 @@ const pong = {
 	moveBall : function()
 	{
 		this.ball.move();
-		this.ball.bounce();
+		this.ball.bounceOffWall();
 	},
 	movePaddles : function()
 	{
 		Object.keys(pong.keyCode).forEach(key => {
-		pong.keyCode[key].pressed && pong.keyCode[key].func()
+			pong.keyCode[key].pressed && pong.keyCode[key].func()
 		});
 	},
 	detectCollisionWithBall : function()
@@ -177,7 +189,7 @@ const pong = {
 		if (this.ball.detectCollision(this.paddle1) || this.ball.detectCollision(this.paddle2))
 		{
 			console.log("paddle collision");
-			this.ball.directionX *= -1;
+			this.ball.velocityX *= -1;
 		}
 	}
 };
