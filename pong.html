@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	</body>
+	<script src="pong.js"></script>
+	<script src="pong.keyCode.js"></script>
+	<script src="pong.display.js"></script>
+	<script src="pong.control.js"></script>
+	<script>
+		(function () {
+					let requestAnimId;
+
+					let initialisation = function() {
+								pong.init();
+								requestAnimId = window.requestAnimationFrame(main); // premier appel de main au rafraîchissement de la page
+							}
+
+					// un cycle d'affichage = un passage dans main()
+					const main = function() {
+								pong.clearLayer(pong.ballPaddlesLayer);
+								pong.moveBall();
+								pong.movePaddles();
+								pong.collideWithBall();
+								pong.displayBall();
+								pong.displayPaddles();
+								requestAnimId = window.requestAnimationFrame(main); // rappel de main au prochain rafraîchissement de la page
+							}
+
+					// appel de la fonction initialisation au chargement de la page
+					window.onload = initialisation; 
+
+				})();
+	</script> 
+</html>
