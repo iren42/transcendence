@@ -51,8 +51,6 @@ const pong = {
 		color : "#FFFFFF",
 		posX : 10,
 		posY : 200,
-		goDown : false,
-		goUp : false,
 		moveDown : function()
 		{
 			if (pong.paddle1.posY < pong.groundHeight - pong.paddle1.height)
@@ -71,8 +69,6 @@ const pong = {
 		color : "#FFFFFF",
 		posX : 600,
 		posY : 200,
-		goDown : false,
-		goUp : false,
 		moveDown : function()
 		{
 			if (pong.paddle2.posY < pong.groundHeight - pong.paddle2.height)
