@@ -2,21 +2,21 @@ pong.keyCode = {
 	// j
 	74 : {
 		pressed: false,
-		func: pong.paddle1.moveDown
+		func: pong.paddleL.moveDown
 	},
 	// k
 	75 : {
 		pressed: false,
-		func: pong.paddle1.moveUp
+		func: pong.paddleL.moveUp
 	},
 	// l
 	76 : {
 		pressed: false,
-		func: pong.paddle2.moveDown
+		func: pong.paddleR.moveDown
 	},
 	// ;
 	186 : {
 		pressed: false,
-		func: pong.paddle2.moveUp
+		func: pong.paddleR.moveUp
 	},
 };

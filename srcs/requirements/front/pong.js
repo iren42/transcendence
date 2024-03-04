@@ -28,59 +28,94 @@ const pong = {
 			if ( this.posX + this.width > pong.groundWidth || this.posX < 0  )
 				this.velocityX *= -1;  
 		},
-
-		detectCollision : function(item)
-		{
-			if (this.posX + this.width >= item.posX 
-				&& this.posX <= item.posX + item.width
-				&& this.posY + this.height >= item.posY 
-				&& this.posY <= item.posY + item.height
-			)
-			{
-				return (true);
-			}
-			return (false);
-		},
 		move : function()
 		{
-			this.posX += this.velocityX;
-			this.posY += this.velocityY;
+			if (pong.paddleL.detectCollision(pong.ball)
+				|| pong.paddleR.detectCollision(pong.ball))
+			{
+				this.velocityX *= -1;
+			}
+			// ball must never go through our paddles
+			if (this.posX < pong.paddleL.posX + pong.paddleL.width + 10
+				&& this.velocityX < 0
+				|| this.posX + this.width > pong.paddleR.posX - 10
+				&& this.velocityX > 0)
+			{
+				let i = 0;
+				/* console.log("small increment"); */
+				while (i++ < Math.abs(this.velocityX)
+					&& !(pong.paddleL.detectCollision(pong.ball)
+						|| pong.paddleR.detectCollision(pong.ball)))
+				{
+					if (this.velocityX > 0)
+						this.posX++;
+					else
+						this.posX--;
+					if (this.velocityY > 0)
+						this.posY++;
+					else
+						this.posY--;
+				}
+			}
+			else
+			{
+				this.posY += this.velocityY;
+				this.posX += this.velocityX;
+
+			}
 		}
 	},
 
-	paddle1 : {
-		width : 10,
-		height : 20,
+	paddleL : {
+		width : 5,
+		height : 30,
 		color : "#FFFFFF",
 		posX : 10,
 		posY : 200,
 		moveDown : function()
 		{
-			if (pong.paddle1.posY < pong.groundHeight - pong.paddle1.height)
-				pong.paddle1.posY += 5;
+			if (pong.paddleL.posY < pong.groundHeight - pong.paddleL.height)
+				pong.paddleL.posY += 5;
 		},
 		moveUp : function()
 		{
-			if (pong.paddle1.posY > 0)
-				pong.paddle1.posY -= 5;
+			if (pong.paddleL.posY > 0)
+				pong.paddleL.posY -= 5;
+		},
+		detectCollision : function(ball)
+		{
+			if (this.posX + this.width == ball.posX
+				&& this.posY <= ball.posY + ball.height
+				&& this.height + this.posY >= ball.posY)
+				return (true);
+			return (false);
 		}
+
 	},
 
-	paddle2 : {
-		width : 10,
-		height : 20,
+	paddleR : {
+		width : 5,
+		height : 30,
 		color : "#FFFFFF",
-		posX : 700 - 30,
+		posX : 700 - 10 - 5, // is = pong.groundwidth - paddleMarginFromRight - paddleWidth
 		posY : 200,
 		moveDown : function()
 		{
-			if (pong.paddle2.posY < pong.groundHeight - pong.paddle2.height)
-				pong.paddle2.posY += 5;
+			if (pong.paddleR.posY < pong.groundHeight - pong.paddleR.height)
+				pong.paddleR.posY += 5;
 		},
 		moveUp : function()
 		{
-			if (pong.paddle2.posY > 0)
-				pong.paddle2.posY -= 5;
+			if (pong.paddleR.posY > 0)
+				pong.paddleR.posY -= 5;
+		},
+		detectCollision : function(ball)
+		{
+			if (this.posX == ball.posX + ball.width
+				&& this.posY <= ball.posY + ball.height
+				&& this.height + this.posY >= ball.posY)
+				return (true);
+			return (false);
 		}
 	},
 
@@ -104,7 +139,7 @@ const pong = {
 		this.clearLayer(this.ballPaddlesLayer);
 		this.moveBall();
 		this.movePaddles();
-		this.detectCollisionWithBall();
+		/* this.collisionWithBall(); */
 		this.updateScore();
 		this.displayBall();
 		this.displayPaddles();
@@ -128,8 +163,8 @@ const pong = {
 	},
 	displayPaddles : function()
 	{
-		pong.display.drawRecInLayer(this.ballPaddlesLayer, this.paddle1.width, this.paddle1.height, this.paddle1.color, this.paddle1.posX, this.paddle1.posY);
-		pong.display.drawRecInLayer(this.ballPaddlesLayer, this.paddle2.width, this.paddle2.height, this.paddle2.color, this.paddle2.posX, this.paddle2.posY);
+		pong.display.drawRecInLayer(this.ballPaddlesLayer, this.paddleL.width, this.paddleL.height, this.paddleL.color, this.paddleL.posX, this.paddleL.posY);
+		pong.display.drawRecInLayer(this.ballPaddlesLayer, this.paddleR.width, this.paddleR.height, this.paddleR.color, this.paddleR.posX, this.paddleR.posY);
 	},
 
 	// supprime la trainee de la balle
@@ -149,7 +184,7 @@ const pong = {
 	},
 	updateScore : function()
 	{
-		// player1 gagne 1 point
+		// left player gagne 1 point
 		if (pong.ball.posX + pong.ball.width >= this.groundWidth)
 		{
 			this.scorePlayer1++;
@@ -183,13 +218,15 @@ const pong = {
 		Object.keys(pong.keyCode).forEach(key => {
 			pong.keyCode[key].pressed && pong.keyCode[key].func()
 		});
-	},
-	detectCollisionWithBall : function()
-	{
-		if (this.ball.detectCollision(this.paddle1) || this.ball.detectCollision(this.paddle2))
-		{
-			console.log("paddle collision");
-			this.ball.velocityX *= -1;
-		}
 	}
+	/* collisionWithBall : function() */
+	/* { */
+	/* 	if (this.paddleL.detectCollision(this.ball) */
+	/* 		|| this.paddleR.detectCollision(this.ball)) */
+	/* 	{ */
+	/* 		console.log("paddle collision"); */
+	/* 		return (true); */
+	/* 	} */
+	/* 	return false; */
+	/* } */
 };
