@@ -3,22 +3,23 @@
 	<body>
 	</body>
 	<script src="pong.js"></script>
-	<script src="pong.keyCode.js"></script>
+	<script src="pong.code.js"></script>
 	<script src="pong.display.js"></script>
 	<script src="pong.control.js"></script>
 	<script>
 		(function () {
 					let requestAnimId;
-					const framePerSecond = 60;
+					/* const framePerSecond = 60; */
 
-					let initialisation = function() {
+					let initialisation = function()
+					{
 								pong.init();
 								requestAnimId = window.requestAnimationFrame(main); // premier appel de main au rafraîchissement de la page
-							}
-
+					};
 					// un cycle d'affichage = un passage dans main()
 					const main = function() {
-								setInterval(pong.animate(), 1000 / framePerSecond);
+								/* setInterval(pong.animate(), 1000 / framePerSecond); */
+								pong.currentState();
 								requestAnimId = window.requestAnimationFrame(main); // rappel de main au prochain rafraîchissement de la page
 							}
 

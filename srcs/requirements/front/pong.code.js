@@ -1,22 +1,32 @@
-pong.keyCode = { 
+pong.code = { 
 	// j
-	74 : {
+	KeyJ : {
 		pressed: false,
 		func: pong.paddleL.moveDown
 	},
 	// k
-	75 : {
+	KeyK : {
 		pressed: false,
 		func: pong.paddleL.moveUp
 	},
 	// l
-	76 : {
+	KeyL : {
 		pressed: false,
 		func: pong.paddleR.moveDown
 	},
 	// ;
-	186 : {
+	Semicolon : {
 		pressed: false,
 		func: pong.paddleR.moveUp
 	},
+	// space
+	Space : {
+		pressed: false,
+		/* func: pong.pause */
+	}
+	/* // Enter */
+	/* 13 : { */
+	/* 	pressed:false, */
+	/* 	func: pong.startGame */
+	/* } */
 };

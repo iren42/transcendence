@@ -1,17 +1,19 @@
 pong.control = {
 	onKeyDown : function(event)
 	{
-		if(pong.keyCode[event.keyCode])
+		if(pong.code[event.code])
 		{
-			pong.keyCode[event.keyCode].pressed = true
+			console.log(event.code + " down");
+			pong.code[event.code].pressed = true
 		}
 	},  
 
 	onKeyUp : function(event)
 	{
-		if(pong.keyCode[event.keyCode])
+		if(pong.code[event.code])
 		{
-			pong.keyCode[event.keyCode].pressed = false
+			console.log(event.code + " up");
+			pong.code[event.code].pressed = false
 		}
 	}
 };

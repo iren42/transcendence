@@ -12,6 +12,8 @@ const pong = {
 	scorePlayer1 : 0,
 	scorePlayer2 : 0,
 
+	currentState : null,
+
 	ball : {
 		width : 10,
 		height : 10,
@@ -133,17 +135,34 @@ const pong = {
 		this.displayBall();
 		this.displayPaddles();
 		this.initKeyboard(pong.control.onKeyDown, pong.control.onKeyUp);
+		this.currentState = pong.game;
 	},
-	animate : function()
+	game : function()
 	{
-		this.clearLayer(this.ballPaddlesLayer);
-		this.moveBall();
-		this.movePaddles();
-		/* this.collisionWithBall(); */
-		this.updateScore();
-		this.displayBall();
-		this.displayPaddles();
-
+		pong.clearLayer(pong.ballPaddlesLayer);
+		pong.moveBall();
+		pong.movePaddles();
+		pong.updateScore();
+		pong.displayBall();
+		pong.displayPaddles();
+		if (pong.code["Space"].pressed)
+		{
+			console.log("pause game");
+			pong.code["Space"].pressed = false;
+			pong.currentState = pong.pause;
+		}
+	},
+	pause : function()
+	{
+		console.log("do nothing");
+		// TODO draw pause button on screen
+		// resume game
+		if (pong.code["Space"].pressed)
+		{
+			console.log("resume game");
+			pong.code["Space"].pressed = false; // needed bcs otherwise the key up event registers after the state change
+			pong.currentState = pong.game;
+		}
 	},
 
 	// key controls for paddles
@@ -215,8 +234,9 @@ const pong = {
 	},
 	movePaddles : function()
 	{
-		Object.keys(pong.keyCode).forEach(key => {
-			pong.keyCode[key].pressed && pong.keyCode[key].func()
+		Object.keys(pong.code).forEach(key => {
+			if (key != "Space")
+				pong.code[key].pressed && pong.code[key].func();
 		});
 	}
 	/* collisionWithBall : function() */
