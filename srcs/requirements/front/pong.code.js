@@ -22,11 +22,9 @@ pong.code = {
 	// space
 	Space : {
 		pressed: false,
-		/* func: pong.pause */
+	},
+	// Enter
+	Enter : {
+		pressed:false,
 	}
-	/* // Enter */
-	/* 13 : { */
-	/* 	pressed:false, */
-	/* 	func: pong.startGame */
-	/* } */
 };

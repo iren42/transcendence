@@ -135,8 +135,18 @@ const pong = {
 		this.displayBall();
 		this.displayPaddles();
 		this.initKeyboard(pong.control.onKeyDown, pong.control.onKeyUp);
-		this.currentState = pong.game;
+		this.currentState = pong.start;
 	},
+	start	: function()
+	{
+		// TODO draw a "Press Enter to start" layer
+		if(pong.code["Enter"].pressed)
+		{
+			pong.code["Enter"].pressed = false;
+			pong.currentState = pong.game;
+		}
+	},
+
 	game : function()
 	{
 		pong.clearLayer(pong.ballPaddlesLayer);
@@ -235,7 +245,8 @@ const pong = {
 	movePaddles : function()
 	{
 		Object.keys(pong.code).forEach(key => {
-			if (key != "Space")
+			if (key != "Space"
+				&& key != "Enter")
 				pong.code[key].pressed && pong.code[key].func();
 		});
 	}
