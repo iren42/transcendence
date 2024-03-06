@@ -3,7 +3,7 @@ pong.paddleL = {
 	height : 30,
 	color : "#FFFFFF",
 	posX : 10,
-	posY : 200,
+	posY : 0,
 	moveDown : function()
 	{
 		if (pong.paddleL.posY < pong.groundHeight - pong.paddleL.height)
@@ -29,7 +29,7 @@ pong.paddleR = {
 	height : 30,
 	color : "#FFFFFF",
 	posX : 700 - 10 - 5, // is = pong.groundwidth - paddleMarginFromRight - paddleWidth
-	posY : 200,
+	posY : 0,
 	moveDown : function()
 	{
 		if (pong.paddleR.posY < pong.groundHeight - pong.paddleR.height)

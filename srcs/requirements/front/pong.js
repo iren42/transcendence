@@ -23,6 +23,8 @@ const pong = {
 		this.scoreLayer = pong.display.createLayer("score", this.groundWidth, this.groundHeight, undefined, 1, undefined, 0, 0);
 		this.ballPaddlesLayer = pong.display.createLayer("ballPaddles", this.groundWidth, this.groundHeight, undefined, 2, undefined, 0, 0); 
 
+		this.centerBall();
+		this.centerPaddles();
 		this.randomizeBallDirection();
 		// render
 		this.displayScore(this.scorePlayer1, this.scorePlayer2);
@@ -45,13 +47,13 @@ const pong = {
 
 	game : function()
 	{
-		pong.clearLayer(pong.ballPaddlesLayer);
 		// update
 		pong.moveBall();
 		pong.movePaddles();
 		// check if there is a winner and update scores
 		pong.winLoseSystem();
 		// render
+		pong.clearLayer(pong.ballPaddlesLayer);
 		pong.displayBall();
 		pong.displayPaddles();
 		// pause game
@@ -79,6 +81,12 @@ const pong = {
 	end : function()
 	{
 		console.log("WIN");
+		// reset paddles and ball's positions
+		pong.centerPaddles();
+		pong.centerBall();
+		pong.clearLayer(pong.ballPaddlesLayer);
+		pong.displayBall();
+		pong.displayPaddles();
 		if (pong.code["Enter"].pressed)
 		{
 			console.log("new game");
@@ -86,11 +94,11 @@ const pong = {
 			// reset score
 			pong.scorePlayer1 = 0;
 			pong.scorePlayer2 = 0;
+			// randomize ball direction
+			if ((Math.floor(Math.random() * 2)) % 2)
+				pong.ball.velocityX *= -1;
 			pong.clearLayer(pong.scoreLayer);
 			pong.displayScore();
-			// reset paddles and ball's positions
-			pong.centerPaddles();
-			pong.centerBall();
 			// resume game
 			pong.currentState = pong.game;
 		}
@@ -129,19 +137,18 @@ const pong = {
 		pong.ball.velocityY = 0;
 		if ((Math.floor(Math.random() * 2)) % 2)
 			pong.ball.velocityX *= -1;
-		console.log("vel x = " + pong.ball.velocityX + "vel y = " + pong.ball.velocityY );
 	},
 
 	centerBall : function()
 	{
-		pong.ball.posX = this.groundWidth / 2;
-		pong.ball.posY = this.groundHeight / 2;
+		pong.ball.posX = (this.groundWidth - pong.ball.width) / 2;
+		pong.ball.posY = (this.groundHeight - pong.ball.height) / 2;
 	},
 
 	centerPaddles : function()
 	{
-		pong.paddleL.posY = this.groundHeight / 2;
-		pong.paddleR.posY = this.groundHeight / 2;
+		pong.paddleL.posY = (this.groundHeight - pong.paddleL.height) / 2;
+		pong.paddleR.posY = (this.groundHeight - pong.paddleR.height) / 2;
 	},
 
 	winLoseSystem : function()
@@ -150,15 +157,13 @@ const pong = {
 		if (this.scorePlayer1 >= 11 || this.scorePlayer2 >= 11)
 		{
 			pong.currentState = pong.end;
-
 		}
 		// left player gagne 1 point
 		if (pong.ball.posX + pong.ball.width >= this.groundWidth)
 		{
 			this.scorePlayer1++;
-			this.randomizeBallDirection();
-			// ball se dirige vers le gagnant
-			if (pong.ball.velocityX > 0)
+			// ball moves toward loser
+			if (pong.ball.velocityX < 0)
 				pong.ball.velocityX *= -1;
 			this.centerBall();
 			this.clearLayer(this.scoreLayer);
@@ -167,8 +172,7 @@ const pong = {
 		else if (pong.ball.posX <= 0)
 		{
 			this.scorePlayer2++;
-			this.randomizeBallDirection();
-			if (pong.ball.velocityX < 0)
+			if (pong.ball.velocityX > 0)
 				pong.ball.velocityX *= -1;
 			this.centerBall();
 			this.clearLayer(this.scoreLayer);
