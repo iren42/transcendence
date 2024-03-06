@@ -76,6 +76,26 @@ const pong = {
 		}
 	},
 
+	end : function()
+	{
+		console.log("WIN");
+		if (pong.code["Enter"].pressed)
+		{
+			console.log("new game");
+			pong.code["Enter"].pressed = false;
+			// reset score
+			pong.scorePlayer1 = 0;
+			pong.scorePlayer2 = 0;
+			pong.clearLayer(pong.scoreLayer);
+			pong.displayScore();
+			// reset paddles and ball's positions
+			pong.centerPaddles();
+			pong.centerBall();
+			// resume game
+			pong.currentState = pong.game;
+		}
+	},
+
 	initKeyboard : function(onKeyDownFunction, onKeyUpFunction) 
 	{
 		window.onkeydown = onKeyDownFunction;
@@ -118,8 +138,20 @@ const pong = {
 		pong.ball.posY = this.groundHeight / 2;
 	},
 
+	centerPaddles : function()
+	{
+		pong.paddleL.posY = this.groundHeight / 2;
+		pong.paddleR.posY = this.groundHeight / 2;
+	},
+
 	winLoseSystem : function()
 	{
+		// game ends when one player gets 11 points
+		if (this.scorePlayer1 >= 11 || this.scorePlayer2 >= 11)
+		{
+			pong.currentState = pong.end;
+
+		}
 		// left player gagne 1 point
 		if (pong.ball.posX + pong.ball.width >= this.groundWidth)
 		{
