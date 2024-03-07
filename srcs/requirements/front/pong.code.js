@@ -1,21 +1,21 @@
 pong.code = { 
 	// j
-	KeyJ : {
+	KeyA : {
 		pressed: false,
 		func: pong.paddleL.moveDown
 	},
 	// k
-	KeyK : {
+	KeyQ : {
 		pressed: false,
 		func: pong.paddleL.moveUp
 	},
 	// l
-	KeyL : {
+	Semicolon : {
 		pressed: false,
 		func: pong.paddleR.moveDown
 	},
 	// ;
-	Semicolon : {
+	KeyP : {
 		pressed: false,
 		func: pong.paddleR.moveUp
 	},
