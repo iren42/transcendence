@@ -168,6 +168,8 @@ const pong = {
 			this.centerBall();
 			this.clearLayer(this.scoreLayer);
 			this.displayScore();
+			// TODO add small delay here
+			this.sleep(500);
 		}
 		else if (pong.ball.posX <= 0)
 		{
@@ -177,9 +179,19 @@ const pong = {
 			this.centerBall();
 			this.clearLayer(this.scoreLayer);
 			this.displayScore();
+			this.sleep(500);
 		}
 		else
 			;
+	},
+
+	sleep : function (delay)
+	{
+		if(pong.ball.cooldown == false)
+		{
+			pong.ball.cooldown = true;
+			setTimeout(() => pong.ball.cooldown = false, delay);
+		}
 	},
 
 	moveBall : function()
