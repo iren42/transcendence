@@ -6,8 +6,12 @@ pong.ball = {
 	posY : 400 / 2,
 
 	speed : 5,
-	offset : 0,
+	normal : 0,
+	relative : 0,
 	angle : 0,
+
+	diff : 0,
+	largestAbsVel : 0,
 
 	velocityX : 0,
 	velocityY : 0,
@@ -28,40 +32,41 @@ pong.ball = {
 			return ;
 		if (pong.paddleL.detectCollision(pong.ball))
 		{
-			// calcul de la trajectoire de la balle
-			this.offset = (this.posY + this.width - pong.paddleL.posY) / (pong.paddleL.height + this.width);
-			this.angle = 0.25 * Math.PI * (2 * this.offset - 1);
-			this.velocityY = this.speed * Math.sin(this.angle);
-			this.velocityX *= -1;
+			this.relative = (pong.paddleL.posY + (pong.paddleL.height / 2) - (this.posY + this.height/2)) ; // values between (-paddleHeight/2) and paddleHeight/2
+			this.normal = this.relative / (pong.paddleL.height / 2); // values between -1 and 1
+			this.angle = this.normal * 0.25 * Math.PI; // 0.25 * PI rad is equal to 45 degrees, it is the max bounce angle
+			this.velocityX = Math.round(this.speed * Math.cos(this.angle));
+			this.velocityY = Math.round(this.speed * Math.sin(this.angle) * (-1));
 		}
 		else if (pong.paddleR.detectCollision(pong.ball))
 		{
-			this.offset = (this.posY + this.width - pong.paddleR.posY) / (pong.paddleR.height + this.width);
-			this.angle = 0.25 * Math.PI * (2 * this.offset - 1);
-			this.velocityY = this.speed * Math.sin(this.angle);
-			this.velocityX *= -1;
+			this.relative = (pong.paddleR.posY + (pong.paddleR.height / 2) - (this.posY + this.height / 2)) ;
+			this.normal = this.relative / (pong.paddleR.height / 2);
+			this.angle = this.normal * 0.25 * Math.PI;
+			this.velocityX = Math.round(this.speed * Math.cos(this.angle) * (-1));
+			this.velocityY = Math.round(this.speed * Math.sin(this.angle) * (-1));
 		}
 		else
 			;
-		// ball must never go through our paddles
+
+		// small increments bcs
+		// ball must never pass through our paddles
 		if (this.posX < pong.paddleL.posX + pong.paddleL.width + 10
 			&& this.velocityX < 0
 			|| this.posX + this.width > pong.paddleR.posX - 10
 			&& this.velocityX > 0)
 		{
-			console.log(this.velocityX + ","  + this.velocityY + " = velx vely");
-			let i = 0;
-			let higherVel = Math.abs(this.velocityY);
-			let diff = (Math.abs(this.velocityX) - Math.abs(this.velocityY));
+			largestAbsVel = Math.abs(this.velocityY);
+			diff = (Math.abs(this.velocityX) - Math.abs(this.velocityY));
 			if (diff > 0)
-				higherVel = Math.abs(this.velocityX);
-			console.log("diff = " + diff);
-			let buf = (diff);
-			while (i++ < higherVel
+				largestAbsVel = Math.abs(this.velocityX);
+			/* console.log(this.velocityX + ","  + this.velocityY + " = velx vely"); */
+			/* console.log("before loop, ballx=" + this.posX + "bally=" + this.posY + ", diff = " + diff); */
+			while (largestAbsVel-- > 0
 				&& (!(pong.paddleL.detectCollision(pong.ball)
 					|| pong.paddleR.detectCollision(pong.ball))))
 			{
-				if (buf == 0) // posX and posY increment at the same speed 
+				if (diff == 0) // posX and posY increment at the same speed 
 				{
 					if (this.velocityX > 0)
 						this.posX++;
@@ -72,40 +77,23 @@ pong.ball = {
 					else
 						this.posY--;
 				}
-				else if (buf > 0) // posX increments faster than posY
+				else if (diff > 0) // posX increments faster than posY
 				{
 					if (this.velocityX > 0)
-					{
 						this.posX++;
-					}
 					else
-					{
 						this.posX--;
-					}
-					if (this.velocityY > 0 && buf == 1)
-						this.posY++;
-					else if (this.velocityY < 0 && buf == 1)
-						this.posY--;
-					else
-						;
-					buf--;
+					diff--;
 				}
 				else
 				{
-					if (this.velocityX > 0 && buf == -1)
-					{
-						this.posX++;
-					}
-					else if (this.velocityX < 0 && buf == -1)
-						this.posX--;
-					else
-						;
 					if (this.velocityY > 0)
 						this.posY++;
-					else
+					else 
 						this.posY--;
-					buf++;
+					diff++;
 				}
+				/* console.log("inside loop, ballx=" + this.posX + "bally=" + this.posY + ", diff = " + diff); */
 			}
 		}
 		else

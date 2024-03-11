@@ -1,9 +1,10 @@
 pong.paddleL = {
 	width : 5,
-	height : 30,
+	height : 50,
 	color : "#FFFFFF",
 	posX : 10,
 	posY : 0,
+
 	moveDown : function()
 	{
 		if (pong.paddleL.posY < pong.groundHeight - pong.paddleL.height)
@@ -17,6 +18,7 @@ pong.paddleL = {
 	detectCollision : function(ball)
 	{
 		if (this.posX + this.width == ball.posX
+			/* && this.posX <= ball.posX + ball.width */
 			&& this.posY <= ball.posY + ball.height
 			&& this.height + this.posY >= ball.posY)
 			return (true);
@@ -26,10 +28,11 @@ pong.paddleL = {
 
 pong.paddleR = {
 	width : 5,
-	height : 30,
+	height : 50,
 	color : "#FFFFFF",
 	posX : 700 - 10 - 5, // is = pong.groundwidth - paddleMarginFromRight - paddleWidth
 	posY : 0,
+
 	moveDown : function()
 	{
 		if (pong.paddleR.posY < pong.groundHeight - pong.paddleR.height)
@@ -43,6 +46,7 @@ pong.paddleR = {
 	detectCollision : function(ball)
 	{
 		if (this.posX == ball.posX + ball.width
+			/* && this.posX + this.width >= ball.posX */
 			&& this.posY <= ball.posY + ball.height
 			&& this.height + this.posY >= ball.posY)
 			return (true);

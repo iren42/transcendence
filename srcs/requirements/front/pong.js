@@ -196,8 +196,8 @@ const pong = {
 
 	moveBall : function()
 	{
-		pong.ball.move();
 		pong.ball.bounceOffWall();
+		pong.ball.move();
 	},
 
 	movePaddles : function()
