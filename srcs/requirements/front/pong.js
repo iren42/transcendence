@@ -67,7 +67,6 @@ const pong = {
 
 	pause : function()
 	{
-		console.log("do nothing");
 		// TODO draw pause button on screen
 		// resume game
 		if (pong.code["Space"].pressed)

@@ -4,19 +4,12 @@ pong.ball = {
 	color : "#0000FF",
 	posX : 700 / 2,
 	posY : 400 / 2,
+	cooldown : false,
 
 	speed : 5,
-	normal : 0,
-	relative : 0,
-	angle : 0,
-
-	diff : 0,
-	largestAbsVel : 0,
 
 	velocityX : 0,
 	velocityY : 0,
-
-	cooldown : false,
 
 	bounceOffWall : function()
 	{
@@ -30,76 +23,142 @@ pong.ball = {
 	{
 		if (this.cooldown == true)
 			return ;
+		// recalculate the ball velocity after a collision with a paddle
+		let	angle = 0;
 		if (pong.paddleL.detectCollision(pong.ball))
 		{
-			this.relative = (pong.paddleL.posY + (pong.paddleL.height / 2) - (this.posY + this.height/2)) ; // values between (-paddleHeight/2) and paddleHeight/2
-			this.normal = this.relative / (pong.paddleL.height / 2); // values between -1 and 1
-			this.angle = this.normal * 0.25 * Math.PI; // 0.25 * PI rad is equal to 45 degrees, it is the max bounce angle
-			this.velocityX = Math.round(this.speed * Math.cos(this.angle));
-			this.velocityY = Math.round(this.speed * Math.sin(this.angle) * (-1));
+			angle = pong.ball.calculateAngle(pong.paddleL);
+			this.velocityX = Math.round(this.speed * Math.cos(angle));
+			this.velocityY = Math.round(this.speed * Math.sin(angle) * (-1));
 		}
 		else if (pong.paddleR.detectCollision(pong.ball))
 		{
-			this.relative = (pong.paddleR.posY + (pong.paddleR.height / 2) - (this.posY + this.height / 2)) ;
-			this.normal = this.relative / (pong.paddleR.height / 2);
-			this.angle = this.normal * 0.25 * Math.PI;
-			this.velocityX = Math.round(this.speed * Math.cos(this.angle) * (-1));
-			this.velocityY = Math.round(this.speed * Math.sin(this.angle) * (-1));
+			angle = pong.ball.calculateAngle(pong.paddleR);
+			this.velocityX = Math.round(this.speed * Math.cos(angle) * (-1));
+			this.velocityY = Math.round(this.speed * Math.sin(angle) * (-1));
 		}
 		else
 			;
 
-		// small increments bcs
-		// ball must never pass through our paddles
+		// ball makes small increments bcs
+		// ball must never be INSIDE our paddles
 		if (this.posX < pong.paddleL.posX + pong.paddleL.width + 10
 			&& this.velocityX < 0
 			|| this.posX + this.width > pong.paddleR.posX - 10
 			&& this.velocityX > 0)
 		{
-			largestAbsVel = Math.abs(this.velocityY);
-			diff = (Math.abs(this.velocityX) - Math.abs(this.velocityY));
-			if (diff > 0)
-				largestAbsVel = Math.abs(this.velocityX);
+			let j = 0;
+			let i = 0;
+			let countY = 0;
+			let countX = 0;
+			let	ratio;
+			let	bigAbsVel;
+			let	smallAbsVel;
 			/* console.log(this.velocityX + ","  + this.velocityY + " = velx vely"); */
-			/* console.log("before loop, ballx=" + this.posX + "bally=" + this.posY + ", diff = " + diff); */
-			while (largestAbsVel-- > 0
-				&& (!(pong.paddleL.detectCollision(pong.ball)
-					|| pong.paddleR.detectCollision(pong.ball))))
+			// velX will never be equal to 0
+			if (Math.abs(this.velocityY / this.velocityX) > 1)
 			{
-				if (diff == 0) // posX and posY increment at the same speed 
+				// posY increments faster than posX 
+				bigAbsVel = Math.abs(this.velocityY);
+				smallAbsVel = Math.abs(this.velocityX);
+				ratio = Math.round(bigAbsVel / smallAbsVel);
+				/* console.log("before loop, ballx=" + this.posX + "bally=" + this.posY + ", ratio = " + ratio); */
+				while (i++ < bigAbsVel
+					&& !(countX == smallAbsVel && countY == bigAbsVel) 
+					&& !(this.detectAllBallCollisions()))
 				{
-					if (this.velocityX > 0)
-						this.posX++;
-					else
-						this.posX--;
-					if (this.velocityY > 0)
-						this.posY++;
-					else
-						this.posY--;
+					j = 0;
+					while (j++ < ratio
+						&& (!(this.detectAllBallCollisions())))
+					{
+						if (countY != bigAbsVel)
+						{
+							this.movePosYOnePixel();
+							countY++;
+						}
+					}
+					if (countX != smallAbsVel)
+					{
+						this.movePosXOnePixel();
+						countX++;
+					}
 				}
-				else if (diff > 0) // posX increments faster than posY
-				{
-					if (this.velocityX > 0)
-						this.posX++;
-					else
-						this.posX--;
-					diff--;
-				}
+				/* console.log("countX=" + countX + ", countY="+ countY); */
+			}
+			else
+			{
+				// posX increments faster than posY 
+				bigAbsVel = Math.abs(this.velocityX);
+				smallAbsVel = Math.abs(this.velocityY);
+				if (this.velocityY != 0)
+					ratio = Math.round(bigAbsVel / smallAbsVel);
 				else
 				{
-					if (this.velocityY > 0)
-						this.posY++;
-					else 
-						this.posY--;
-					diff++;
+					i = -1;
+					ratio = Math.round(bigAbsVel);
 				}
-				/* console.log("inside loop, ballx=" + this.posX + "bally=" + this.posY + ", diff = " + diff); */
+				/* console.log("before loop, ballx=" + this.posX + "bally=" + this.posY + ", ratio = " + ratio); */
+				while (i++ < bigAbsVel
+					&& !(countX == bigAbsVel && countY == smallAbsVel) 
+					&& !(this.detectAllBallCollisions()))
+				{ 
+					j = 0;
+					while (j++ < ratio
+						&& (!(this.detectAllBallCollisions())))
+					{
+						if (countX != bigAbsVel)
+						{
+							this.movePosXOnePixel();
+							countX++;
+						}
+					}
+					if (countY != smallAbsVel)
+					{
+						this.movePosYOnePixel();
+						countY++;
+					}
+				}
+				/* console.log("countX=" + countX + ", countY="+ countY); */
 			}
+
 		}
 		else
 		{
 			this.posY += this.velocityY;
 			this.posX += this.velocityX;
 		}
+	},
+
+	calculateAngle : function(paddle)
+	{
+		let	relative = (paddle.posY + (paddle.height / 2) - (this.posY + this.height/2)) ; // values between (-paddleHeight/2) and paddleHeight/2
+		let	normal = relative / (paddle.height / 2); // values between -1 and 1
+		return (normal * 0.25 * Math.PI); // 0.25 * PI rad is equal to 45 degrees, it is the max bounce angle
+	},
+
+	movePosXOnePixel: function()
+	{
+		if (this.velocityX > 0)
+			this.posX++;
+		else
+			this.posX--;
+		/* console.log("move X, ballx=" + this.posX + "bally=" + this.posY ); */
+	},
+
+	movePosYOnePixel: function()
+	{
+		if (this.velocityY > 0)
+			this.posY++;
+		else
+			this.posY--;
+		/* console.log("move Y, ballx=" + this.posX + "bally=" + this.posY ); */
+	},
+
+	detectAllBallCollisions : function()
+	{
+		if (pong.paddleL.detectCollision(pong.ball)
+			|| pong.paddleR.detectCollision(pong.ball))
+			return (true);
+		return (false);
 	}
 };
