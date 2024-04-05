@@ -1,0 +1,11 @@
+.dropdown-menu {
+
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.caret-off::before {
+  display: none !important;
+}
+.caret-off::after {
+  display: none !important;
+}
