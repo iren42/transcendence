@@ -9,3 +9,7 @@
 .caret-off::after {
   display: none !important;
 }
+
+.navbar {
+  height: 64px;
+}
