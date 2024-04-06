@@ -18,3 +18,13 @@
   display: grid;
   place-items: center;
 }
+
+#user-chat-top {
+  height: 64px;
+}
+#user-chat-bottom {
+  height: 88px;
+}
+.main {
+  height:900px;
+}

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<div class="container-fluid vh-100 py-2">
+	<div class="container-fluid vh-100 py-2 ">
 		<div class="row gx-2 h-100 ">
 			<div class="col-md-12 col-lg-8 col-xl-9 h-100 d-flex flex-column order-lg-2 mb-2">
 				<div class="row gx-0">
@@ -158,10 +158,24 @@
 				</div>
 			</div>
 
-			<div class="col-md-12 col-lg-4 col-xl-3 h-100 order-lg-1">
-				<div class="bg-light border h-100">
-					<!-- is chat -->
-					CHAT
+			<!-- is chat -->
+			<div class="col-md-12 col-lg-4 col-xl-3 h-100 order-lg-1 ">
+				<div class="border position-relative bg-light h-100 d-flex flex-column">
+					<div id="user-chat-top" class="row gx-0 border-bottom w-100">
+						CHAT TOP
+					</div>
+					<div id="user-chat-bottom" class="row gx-0 border-top  position-absolute bottom-0 w-100">
+						<div class="row h-100 w-100 gx-0">
+							<div class="col-8 pe-0 h-100 w-75">
+								<textarea class="form-control p-0 h-100 w-100" rows="3"
+									placeholder="Envoyer un message..."></textarea>
+							</div>
+							<div class="col-4 ps-0 h-100 w-25">
+								<button class="btn btn-primary " type="button">Envoyer</button>
+							</div>
+						</div>
+					</div>
+					<div class=" row gx-0 flex-grow-1 bg-dark w-100">CHAT MIDDLE</div>
 				</div>
 			</div>
 		</div>
