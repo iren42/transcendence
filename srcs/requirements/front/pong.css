@@ -13,3 +13,8 @@
 .navbar {
   height: 64px;
 }
+
+.modal-body {
+  display: grid;
+  place-items: center;
+}
