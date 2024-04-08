@@ -19,12 +19,12 @@
   place-items: center;
 }
 
-#user-chat-top {
-  height: 64px;
+.pic {
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
 }
-#user-chat-bottom {
+
+.message-input {
   height: 88px;
-}
-.main {
-  height:900px;
 }

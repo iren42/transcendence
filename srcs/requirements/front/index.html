@@ -148,24 +148,54 @@
 			</div>
 
 			<!-- is chat -->
-				<div class="col-md-12 col-lg-4 col-xl-3 order-lg-1 h-100 bg-light d-flex flex-column">
-					<div id="user-chat-top" class="row g-0 border w-100">
-						CHAT TOP
-					</div>
+			<div class="col-md-12 col-lg-4 col-xl-3 order-lg-1 h-100 bg-light d-flex flex-column">
+				<div class="navbar row g-0 border w-100">
+					CHAT TOP
+				</div>
 
-					<div class="row flex-grow-1 bg-dark w-100 g-0 border-start border-end">CHAT MIDDLE</div>
+				<!-- this chat-area changes dynamically-->
+				<div class="row w-100 g-0 bg-light border-start border-end flex-grow-1 ">
+					<div class="chat-area h-100 w-100 position-relative d-flex flex-column">
 
-					<div id="user-chat-bottom" class="row g-0 border w-100">
-							<div class="col-8 pe-0 h-100 w-75">
-								<textarea class="form-control p-0 h-100 w-100" rows="3"
+						<!-- case 1 : liste des discussions -->
+						<div class="border-bottom canal">
+							<h3 class="canal name">Nom du canal</h3>
+							<p class="canal last-message">Dernier message du canal</p>
+						</div>
+
+						<!-- case 2 : discussion -->
+						<div class="receive-messages flex-grow-1">
+							<!-- message d'un utilisateur dans le channel general -->
+							<div class="message-container">
+								<div class="message-info border-bottom">
+									<div class="message-sender d-flex flex-row"></div>
+									<img class="pic" src="./assets/user.jpg">
+									<p class="name">NOM</p>
+								</div>
+								<p class="message-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
+									quas
+									nemo eum, earum
+									sunt, nobis similique quisquam eveniet pariatur commodi modi voluptatibus iusto
+									omnis harum illum iste distinctio expedita illo!</p>
+								<p class="message-timestamp">18:06 PM | July 24 </p>
+							</div>
+						</div>
+
+						<!-- typing box -->
+						<div class="d-flex flex-row border w-100 message-input">
+							<div class="h-100 w-75">
+								<textarea id="chat-box" class="form-control p-0 h-100 w-100" rows="3"
 									placeholder="Envoyer un message..."></textarea>
 							</div>
-							<div class="col-4 ps-0 h-100 w-25">
+							<div class="h-100 w-25">
 								<button class="btn btn-primary " type="button">Envoyer</button>
 							</div>
-					</div>
+						</div>
 
+						<!-- case 3 : liste des utilisateurs -->
+					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 	<!-- Bootstrap JS -->
@@ -173,5 +203,6 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 </body>
+<!-- <script src="index.js"></script> -->
 
 </html>
