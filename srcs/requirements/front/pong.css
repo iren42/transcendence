@@ -53,7 +53,7 @@ h2 {
 
 h3 {
   font-family: "8bitoperator_jve";
-  font-size: 28px;
+  font-size: 21px;
 }
 
 p {
@@ -123,12 +123,22 @@ p {
   width: auto;
 }
 
+.bi-heart-fill {
+  height: 16px;
+  width: auto;
+  align-self: flex-end;
+  margin-bottom: 4px;
+}
 .bi-arrow-left-short {
   height: 32px;
   width: auto;
-  margin-left: 8px;
+  /* margin-left: 8px; */
 }
 
+/* __________________ CHATBOX __________________*/
+.chatbox__list {
+  width: 100%;
+}
 /* __________________ USER (CHATBOX)__________________*/
 .user {
   height: 56px;
@@ -147,6 +157,36 @@ p {
   margin: 0 0 4px 0;
 }
 
+/* __________________ CANAL (CHATBOX)__________________*/
+.chatbox__list__item {
+  width: 100%;
+  padding: 8px 16px 8px 16px;
+  border: 0;
+  text-align: left;
+  height: 56px;
+
+  &:focus {
+    color: #C96F26;
+  }
+}
+.canal__name {
+  /* font-family: "8bitoperator_jve"; */
+  font-size: 16px;
+  margin-bottom: 0.25rem;
+  padding-left: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.canal__message {
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 30px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* __________________ MESSAGE (CHATBOX)__________________*/
 .message {
   overflow: hidden;
@@ -173,14 +213,10 @@ p {
   scrollbar-width: thin;
 }
 
-.fb-scroll {
-  flex-basis: 100%;
-  max-height: 100%;
-  min-height: 200px;
-}
-
 /* __________________ CHATBOX __________________*/
 .chatbox {
+  height: 100%;
+  width: 100%;
   border-bottom: 0.5rem;
   border-right: 0.5rem;
   border-left: 0.5rem;
@@ -189,15 +225,28 @@ p {
   border-color: #e5e5e5;
 }
 
+.chatbox__list {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; 
+  overflow-y: scroll;
+  white-space: wrap;
+  scrollbar-color:  rgba(201, 111, 38, 0.4) #121212;
+  scrollbar-width: thin;
+}
 .chatbox__navbar__container {
   justify-content: space-evenly !important;
   min-width: 0;
 }
 
+.chatbox__navbar__canal {
+  white-space: nowrap;
+  overflow: hidden;
+}
 .chatbox__nav__btn {
   border: none;
-  font-family: "CryptOfTomorrow";
-  font-size: 26px;
+  font-family: "8bitoperator_jve";
+  font-size: 21px;
   padding-left: 4px;
   padding-right: 4px;
   width: 50%;
@@ -248,6 +297,12 @@ p {
     background-color: rgba(201, 111, 38, 0.8);
     color: #e5e5e5;
   }
+}
+
+.flex-basis-scroll {
+  flex-basis: 100%;
+  max-height: 100%;
+  min-height: 200px;
 }
 
 textarea {
