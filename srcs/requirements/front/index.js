@@ -1,7 +1,6 @@
-let canals = document.querySelectorAll(".canal");
-let chatmiddle = document.querySelector(".receive-messages");
+let canals = document.querySelectorAll(".chatbox");
 
-// affiche la discussion
+// affiche une discussion 
 let load_chatting_box = function () {
     // clear 
     chatmiddle.replaceChildren();
@@ -45,16 +44,6 @@ let load_chatting_box = function () {
     chatmiddle.appendChild(message);
 
     // SHOW INPUT BOX
-				// <div class="row g-0 border w-100 message-input">
-				// 	<div class="col-8 pe-0 h-100 w-75">
-				// 		<textarea id="chat-box" class="form-control p-0 h-100 w-100" rows="3"
-				// 			placeholder="Envoyer un message..."></textarea>
-				// 	</div>
-				// 	<div class="col-4 ps-0 h-100 w-25">
-				// 		<button class="btn btn-primary " type="button">Envoyer</button>
-				// 	</div>
-				// </div>
-                let inputbox = document.createElement("div");
 };
 
 // affiche toutes les discussions

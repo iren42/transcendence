@@ -1,17 +1,148 @@
-.dropdown-menu {
+/* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"); */
 
+@font-face {
+  font-family: "CryptOfTomorrow";
+  src:
+    local('CryptOfTomorrow'),
+    url('./assets/fonts/cryptoftomorrow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "8bitoperator_jve";
+  src:
+    local('8bitoperator_jve'),
+    url('./assets/fonts/8bitOperatorPlus-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Comic Neue";
+  src:
+    local('Comic Neue'),
+    url('./assets/fonts/ComicNeue-Regular.ttf') format('truetype'),
+    url('./assets/fonts/ComicNeue-Bold.ttf') format('truetype'),
+    url('./assets/fonts/ComicNeue-BoldItalic.ttf') format('truetype'),
+    url('./assets/fonts/ComicNeue-Light.ttf') format('truetype'),
+    url('./assets/fonts/ComicNeue-LightItalic.ttf') format('truetype'),
+    url('./assets/fonts/ComicNeue-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  background-color: #121212;
+  color: #e5e5e5;
+  margin: 0;
+  padding: 0;
+}
+
+/* typescale 1.333 */
+
+h1 {
+  font-family: "CryptOfTomorrow";
+  font-size: 90px;
+}
+
+h2 {
+  font-family: "8bitoperator_jve";
+  font-size: 51px;
+}
+
+h3 {
+  font-family: "8bitoperator_jve";
+  font-size: 28px;
+}
+
+p {
+  font-family: "Comic Neue";
+  font-size: 16px;
+}
+
+.dropdown-menu {
   max-height: 300px;
   overflow-y: scroll;
 }
+
+/* hide .dropdown-menu's caret */
 .caret-off::before {
   display: none !important;
 }
+
 .caret-off::after {
   display: none !important;
 }
 
 .navbar {
   height: 64px;
+  border: 0.5rem;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+
+.navbar-brand {
+  font-family: "CryptOfTomorrow";
+  font-size: 28px;
+  color: #e5e5e5;
+
+  &:hover {
+    color: #e5e5e5;
+  }
+}
+
+.nav-item {
+  margin-left: 8px;
+}
+
+.navbar-toggler-icon {
+
+  height: 24px;
+  width: 24px;
+}
+
+.bi {
+  fill: #e5e5e5;
+  height: 24px;
+  width: auto;
+}
+
+.bi-bell-fill {
+  height: 20px;
+  width: auto;
+}
+
+.bi-arrow-left-short {
+  height: 32px;
+  width: auto;
+  margin-left: 8px;
+}
+
+.chatbox {
+
+  border-bottom: 0.5rem;
+  border-right: 0.5rem;
+  border-left: 0.5rem;
+  border-top: 0rem;
+  border-style: solid;
+  border-color: #e5e5e5;
+
+}
+
+.chatbox__navbar__container {
+  justify-content: space-evenly !important;
+}
+
+.chatbox__btn-nav {
+  border: none;
+  font-family: "8bitoperator_jve";
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &:focus {
+    color: #C96F26;
+  }
 }
 
 .modal-body {
@@ -19,12 +150,57 @@
   place-items: center;
 }
 
-.pic {
+.user__pic {
   border-radius: 50%;
   height: 48px;
   width: 48px;
 }
 
-.message-input {
-  height: 88px;
+.chatbox__write {
+  height: 140px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgba(61, 108, 116, .10);
+  border-top: solid rgba(255, 255, 255, 0.50);
+}
+
+.chatbox__write__container {
+
+  background-color: transparent;
+}
+
+.chatbox__write__btn {
+  background-color: rgba(61, 108, 116, 1);
+  color: #e5e5e5;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+}
+
+textarea {
+  font-family: "Comic Neue";
+  font-size: 16px;
+  height: 80px;
+  width: 100%;
+  color: #e5e5e5;
+  padding: 12px 8px;
+  border-bottom: thin solid rgba(255, 255, 255, 0.20);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-radius: 0%;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  scrollbar-color: #3D6C74 #121212;
+  scrollbar-width: thin;
+
+  &:focus {
+    color: #e5e5e5;
+  }
 }

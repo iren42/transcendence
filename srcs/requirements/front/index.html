@@ -11,52 +11,73 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
 	<link rel="stylesheet" href="pong.css">
 </head>
 
 <body>
 	<div class="container-fluid vh-100">
-		<div class="row g-2 h-100 py-2">
+		<div class="row g-3 h-100 py-3">
 			<div class="col-md-12 col-lg-8 col-xl-9 h-100 d-flex flex-column order-lg-2 ">
-				<nav class="row gx-0 navbar navbar-expand-xxl bg-light navbar-light border mb-2">
+				<nav class="row gx-0 navbar navbar-expand-sm mb-3">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="#">PONG+</a>
-						<div class="navbar-nav">
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+							data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-list" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+							</svg>
+						</button>
 
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle caret-off" href="#" id="navbarNotifMenu"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<img src="./assets/notif-fill.svg" alt="bell-icon" width="24" height="24">
-								</a>
-								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-									<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
-								</ul>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle caret-off" href="#" id="navbarAccountMenu"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<img src="./assets/person-fill.svg" alt="account-icon" width="24" height="24">
-								</a>
-								<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-									<li><a class="dropdown-item" href="#">Mon compte</a></li>
-									<li><a class="dropdown-item" href="#">Se déconnecter</a></li>
-								</ul>
-							</li>
+						<div class="collapse navbar-collapse position-relative" id="navbarTogglerDemo02">
+							<a class="navbar-brand " href="#">PONG+</a>
+							<div class="navbar-nav position-absolute top-50 end-0 translate-middle-y">
+
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle caret-off" href="#" id="navbarNotifMenu"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-bell-fill"
+											viewBox="0 0 16 16">
+											<path
+												d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+										</svg>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+										<li><a class="dropdown-item" href="#">NOTIF ITEM</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle caret-off" href="#" id="navbarAccountMenu"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-person-fill"
+											viewBox="0 0 16 16">
+											<path
+												d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+										</svg>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<li><a class="dropdown-item" href="#">Mon compte</a></li>
+										<li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+									</ul>
+								</li>
+							</div>
 						</div>
 					</div>
 				</nav>
 
 				<!-- GAMING ZONE or CONNEXION ZONE -->
-				<div class="row gx-0 flex-grow-1 bg-light border h-100">
+				<div class="row gx-0 flex-grow-1 ">
 					<!-- Buttons trigger for modals -->
-					<div>
+					<div class="main">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 							data-bs-target="#create-account-modal">
 							CREER UN COMPTE
@@ -147,52 +168,66 @@
 				</div>
 			</div>
 
-			<!-- is chat -->
-			<div class="col-md-12 col-lg-4 col-xl-3 order-lg-1 h-100 bg-light d-flex flex-column">
-				<div class="navbar row g-0 border w-100">
-					CHAT TOP
-				</div>
+			<!-- THE chat -->
+			<div class="col-md-12 col-lg-4 col-xl-3 order-lg-1 h-100 d-flex flex-column">
+				<!-- everything inside this col can change dynamically-->
+				<div class="navbar row g-0 ">
+					<div class="container chatbox__navbar__container d-flex flex-row position-relative">
 
-				<!-- this chat-area changes dynamically-->
-				<div class="row w-100 g-0 bg-light border-start border-end flex-grow-1 ">
-					<div class="chat-area h-100 w-100 position-relative d-flex flex-column">
-
-						<!-- case 1 : liste des discussions -->
-						<div class="border-bottom canal">
-							<h3 class="canal name">Nom du canal</h3>
-							<p class="canal last-message">Dernier message du canal</p>
-						</div>
+						<!-- case 1 : liste des discussions et des utilisateurs-->
+						<button type="button" class="chatbox__btn-nav">DISCUSSIONS</button>
+						<button type="button" class="chatbox__btn-nav">UTILISATEURS</button>
 
 						<!-- case 2 : discussion -->
-						<div class="receive-messages flex-grow-1">
-							<!-- message d'un utilisateur dans le channel general -->
-							<div class="message-container">
-								<div class="message-info border-bottom">
-									<div class="message-sender d-flex flex-row"></div>
-									<img class="pic" src="./assets/user.jpg">
-									<p class="name">NOM</p>
+						<!-- <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-arrow-left-short position-absolute top-50 start-0 translate-middle-y" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
+						  </svg>
+						<h3 class="chatbox__navbar__canal position-absolute top-50 start-50 translate-middle">DISCUSSION</h3> -->
+					</div>
+				</div>
+
+				<div class="row w-100 g-0 flex-grow-1 ">
+					<div class="chatbox h-100 w-100 position-relative d-flex flex-column">
+
+						<!-- case 1 : liste des discussions -->
+						<!-- <button type="button" class="btn-canal">
+							<h3 class="canal__name">Nom du canal</h3>
+							<p class="canal__message">Dernier message du canal</p>
+						</button> -->
+						<!-- case 2 : discussion -->
+						<!-- message box -->
+						<div class="chatbox__message flex-grow-1">
+							<!-- 1 message utilisateur dans une discussion -->
+							<div class="message border-bottom ">
+								<div class="user d-flex flex-row">
+									<a href="#">
+										<img class="user__pic" src="./assets/user.jpg">
+									</a>
+									<p class="user__name">NOM</p>
 								</div>
-								<p class="message-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
+								<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
 									quas
 									nemo eum, earum
 									sunt, nobis similique quisquam eveniet pariatur commodi modi voluptatibus iusto
 									omnis harum illum iste distinctio expedita illo!</p>
-								<p class="message-timestamp">18:06 PM | July 24 </p>
+								<p class="message__timestamp">18:06 PM | July 24 </p>
 							</div>
 						</div>
 
 						<!-- typing box -->
-						<div class="d-flex flex-row border w-100 message-input">
-							<div class="h-100 w-75">
-								<textarea id="chat-box" class="form-control p-0 h-100 w-100" rows="3"
-									placeholder="Envoyer un message..."></textarea>
+						<div class="chatbox__write ">
+							<div class="container chatbox__write__container">
+								<textarea name="typing-area" placeholder="Envoyer un message..."></textarea>
 							</div>
-							<div class="h-100 w-25">
-								<button class="btn btn-primary " type="button">Envoyer</button>
-							</div>
+							<button class="btn chatbox__write__btn " type="button">Envoyer</button>
 						</div>
 
 						<!-- case 3 : liste des utilisateurs -->
+						<!-- <div class="border-bottom user">
+							<img class="user__pic" src="./assets/user.jpg">
+							<h3 class="user__name">Nom</h3>
+						</div> -->
+
 					</div>
 				</div>
 			</div>
