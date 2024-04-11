@@ -132,13 +132,19 @@ p {
 
 .chatbox__navbar__container {
   justify-content: space-evenly !important;
+  min-width: 0;
 }
 
-.chatbox__btn-nav {
+.chatbox__nav__btn {
   border: none;
-  font-family: "8bitoperator_jve";
+  font-family: "CryptOfTomorrow";
+  font-size: 26px;
   padding-left: 4px;
   padding-right: 4px;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:focus {
     color: #C96F26;
@@ -150,10 +156,33 @@ p {
   place-items: center;
 }
 
-.user__pic {
+.user {
+  height: 56px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.user__btn__pic {
   border-radius: 50%;
-  height: 48px;
-  width: 48px;
+  height: 36px;
+  width: 36px;
+}
+
+.user__name {
+  font-family: "Comic Neue";
+  margin: 0 0 4px 0;
+}
+
+.message__timestamp {
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 0 8px 12px;
+}
+
+.message__text {
+  padding: 8px;
+  margin: 0;
 }
 
 .chatbox__write {
@@ -163,7 +192,7 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: rgba(61, 108, 116, .10);
+  background-color: transparent;
   border-top: solid rgba(255, 255, 255, 0.50);
 }
 
@@ -173,13 +202,28 @@ p {
 }
 
 .chatbox__write__btn {
-  background-color: rgba(61, 108, 116, 1);
+  background-color: #C96F26;
   color: #e5e5e5;
   width: fit-content;
   height: fit-content;
   position: absolute;
   right: 8px;
-  bottom: 10px;
+  bottom: 8px;
+
+  &:active:focus {
+    background-color: rgba(201, 111, 38, 0.8);
+    color: #e5e5e5;
+  }
+
+  &:hover {
+    background-color: rgba(201, 111, 38, 0.8);
+    color: #e5e5e5;
+  }
+
+  &:active {
+    background-color: rgba(201, 111, 38, 0.8);
+    color: #e5e5e5;
+  }
 }
 
 textarea {
