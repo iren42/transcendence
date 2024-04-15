@@ -20,7 +20,7 @@
 	<div class="container-fluid vh-100">
 		<div class="row g-3 h-100 py-3">
 			<div class="col-md-12 col-lg-8 col-xl-9 h-100 d-flex flex-column order-lg-2 ">
-				<nav class="row gx-0 navbar navbar-expand-sm mb-3">
+				<nav class="row gx-0 navbar navbar-expand-sm ">
 					<div class="container-fluid">
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 							data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
@@ -79,42 +79,58 @@
 				<!-- GAMING ZONE or CONNEXION ZONE -->
 				<div class="row gx-0 flex-grow-1 ">
 					<!-- Buttons trigger for modals -->
-					<div class="main">
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-							data-bs-target="#create-account-modal">
-							CREER UN COMPTE
-						</button>
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-							data-bs-target="#connexion-modal">
-							SE CONNECTER
-						</button>
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-							data-bs-target="#connexion-ft-modal">
-							SE CONNECTER AVEC 42
-						</button>
+					<div class="container container__game">
+						<div class="wrapper-connexion">
+							<button type="button" class="btn-orange" data-bs-toggle="modal"
+								data-bs-target="#create-account-modal">
+								CREER UN COMPTE
+							</button>
+							<button type="button" class="btn-orange" data-bs-toggle="modal"
+								data-bs-target="#connexion-modal">
+								SE CONNECTER
+							</button>
+							<button type="button" class="btn-orange" data-bs-toggle="modal"
+								data-bs-target="#connexion-ft-modal">
+								SE CONNECTER AVEC 42
+							</button>
+						</div>
 					</div>
 
 					<!-- Create an account Modal -->
 					<div class="modal fade" id="create-account-modal" tabindex="-1"
 						aria-labelledby="create-account-modal" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
-							<div class="modal-content position-relative">
+							<div class="modal-content ">
 								<div class="modal-header">
-									<div class=" position-absolute top-0 start-0 m-2">
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<h1 class="modal-title fs-5 position-absolute top-0 start-50 translate-middle-x"
-										id="exampleModalLabel">CREER UN COMPTE</h1>
+									<h5 class="modal-title">CREER UN COMPTE</h5>
+									<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+										aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<input class="mb-4" type="text" placeholder="Adresse email" name="email" required>
-									<input class="mb-4" type="password" placeholder="Mot de passe" name="psw" required>
-									<input class="mb-4" type="password" placeholder="Confirmer le mot de passe"
+									<input class="modal__input " type="text" placeholder="Adresse email" name="email"
+										required>
+									<input class="modal__input" type="password" placeholder="Mot de passe" name="psw"
+										required>
+									<input class="modal__input" type="password" placeholder="Confirmer le mot de passe"
 										name="confirm-psw" required>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">CREER MON COMPTE</button>
+									<button type="button" class="btn-heart" data-bs-dismiss="modal" aria-label="Close">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
+											viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+										</svg>
+										ANNULER
+									</button>
+									<button type="button" class="btn-heart">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
+											viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+										</svg>
+										CREER MON COMPTE
+									</button>
 								</div>
 							</div>
 						</div>
@@ -124,21 +140,35 @@
 					<div class="modal fade" id="connexion-modal" tabindex="-1" aria-labelledby="connexion-modal"
 						aria-hidden="true">
 						<div class="modal-dialog modal-lg">
-							<div class="modal-content position-relative">
+							<div class="modal-content ">
 								<div class="modal-header">
-									<div class=" position-absolute top-0 start-0 m-2">
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<h1 class="modal-title fs-5 position-absolute top-0 start-50 translate-middle-x"
-										id="exampleModalLabel">CONNECTEZ-VOUS A PONG+</h1>
+									<h5 class="modal-title">CONNECTEZ-VOUS A PONG+</h5>
+									<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+										aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<input class="mb-4" type="text" placeholder="Adresse email" name="email" required>
-									<input class="mb-4" type="password" placeholder="Mot de passe" name="psw" required>
+									<input class="modal__input " type="text" placeholder="Adresse email" name="email"
+										required>
+									<input class="modal__input" type="password" placeholder="Mot de passe" name="psw"
+										required>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">SE CONNECTER</button>
+									<button type="button" class="btn-heart" data-bs-dismiss="modal" aria-label="Close">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
+											viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+										</svg>
+										ANNULER
+									</button>
+									<button type="button" class="btn-heart">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
+											viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+										</svg>
+										SE CONNECTER
+									</button>
 								</div>
 							</div>
 						</div>
@@ -148,21 +178,35 @@
 					<div class="modal fade" id="connexion-ft-modal" tabindex="-1" aria-labelledby="connexion-ft-modal"
 						aria-hidden="true">
 						<div class="modal-dialog modal-lg">
-							<div class="modal-content position-relative">
+							<div class="modal-content ">
 								<div class="modal-header">
-									<div class=" position-absolute top-0 start-0 m-2">
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<h1 class="modal-title fs-5 position-absolute top-0 start-50 translate-middle-x"
-										id="exampleModalLabel">CONNECTEZ-VOUS AVEC 42</h1>
+									<h5 class="modal-title">CONNECTEZ-VOUS AVEC 42</h5>
+									<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+										aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<input class="mb-4" type="text" placeholder="Adresse email" name="email" required>
-									<input class="mb-4" type="password" placeholder="Mot de passe" name="psw" required>
+									<input class="modal__input " type="text" placeholder="Adresse email" name="email"
+										required>
+									<input class="modal__input" type="password" placeholder="Mot de passe" name="psw"
+										required>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">SE CONNECTER</button>
+									<button type="button" class="btn-heart" data-bs-dismiss="modal" aria-label="Close">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
+											viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+										</svg>
+										ANNULER
+									</button>
+									<button type="button" class="btn-heart">
+										<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
+											viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+										</svg>
+										SE CONNECTER
+									</button>
 								</div>
 							</div>
 						</div>
@@ -173,54 +217,58 @@
 			<!-- THE chat -->
 			<div class="col-md-12 col-lg-4 col-xl-3 order-lg-1 h-100 d-flex flex-column ">
 				<!-- everything inside this col can change dynamically-->
-				<div class="navbar row g-0 p-0">
-					<div class="container chatbox__navbar__container d-flex flex-row position-relative">
+				<nav class="row gx-0 navbar">
+					<div class="container-fluid d-flex flex-row position-relative">
 
 						<!-- case 1 : liste des discussions et des utilisateurs-->
-						<!-- <button type="button" class="chatbox__nav__btn">DISCUSSIONS</button>
-						<button type="button" class="chatbox__nav__btn">UTILISATEURS</button> -->
+						<button type="button" class="chatbox__nav__btn">DISCUSSIONS</button>
+						<button type="button" class="chatbox__nav__btn">UTILISATEURS</button>
 
 						<!-- case 2 : discussion -->
-						<button type="button" class="btn position-absolute top-50 start-0 translate-middle-y">
+						<!-- <button type="button" class="btn position-absolute top-50 start-0 translate-middle-y">
 							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
 								<path fill-rule="evenodd"
 									d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
 							</svg>
-						</button>
 						<h3 class="chatbox__navbar__canal position-absolute top-50 start-50 translate-middle">DISCUSSION
 						</h3>
+						</button> -->
 					</div>
-				</div>
+				</nav>
 
 				<div class="row w-100 g-0 flex-grow-1 flex-basis-scroll">
 					<div class="chatbox position-relative d-flex flex-column">
 
 						<!-- case 1 : liste des discussions -->
-						<div class="chatbox__list d-flex flex-column">
-							<button type="button" class="chatbox__list__item d-flex flex-column">
-								<div class="d-flex">
-									<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill "
-										viewBox="0 0 16 16">
-										<path fill-rule="evenodd"
-											d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-									</svg>
-									<h3 class="canal__name">Nom du canal</h3>
-								</div>
-								<p class="canal__message">Dernier message dans ce canal. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non quas
+						<!-- <div class="chatbox__list d-flex flex-column">
+						<button type="button" class="chatbox__item__btn ">
+								<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+								</svg>
+								<h3 class="item__title top-50 translate-middle-y">Nom canal</h3>
+								<h4 class="item__info">Dernier message dans ce canal. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non quas
 									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi voluptatibus iusto
-									omnis harum illum iste di</p>
+									omnis harum illum iste di</h4>
 							</button>
-							<button type="button" class="canal__btn">
-								<h3 class="canal__name">Nom du canal</h3>
-								<p class="canal__message">Dernier message dans ce canal</p>
+							<button type="button" class="chatbox__item__btn ">
+								<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+								</svg>
+								<h3 class="item__title top-50 translate-middle-y">Nom canal</h3>
+								<h4 class="item__info">Dernier message dans ce canal. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non quas
+									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi voluptatibus iusto
+									omnis harum illum iste di</h4>
 							</button>
-						</div>
+						</div> -->
+
 						<!-- case 2 : discussion -->
-						<!-- <div class="chatbox__message flex-grow-1">
+						<div class="chatbox__message flex-grow-1">
 							<div class="message">
 								<div class="user ">
-									<button class="btn user__btn ">
-										<img class="user__btn__pic" src="./assets/user.jpg">
+									<button type="button" class="user__btn ">
+										<img class="user__pic" src="./assets/user.jpg">
 									</button>
 									<p class="user__name ">Nom</p>
 									<p class="message__timestamp ">18:06 PM - July 24 </p>
@@ -234,53 +282,8 @@
 							</div>
 							<div class="message">
 								<div class="user ">
-									<button class="btn user__btn ">
-										<img class="user__btn__pic" src="./assets/user.jpg">
-									</button>
-									<p class="user__name ">Nom</p>
-									<p class="message__timestamp ">18:06 PM - July 24 </p>
-								</div>
-								<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
-									quas
-									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
-									voluptatibus iusto
-									omnis harum illum iste distinctio expedita illo!
-								</p>
-							</div>
-							<div class="message">
-								<div class="user ">
-									<button class="btn user__btn ">
-										<img class="user__btn__pic" src="./assets/user.jpg">
-									</button>
-									<p class="user__name ">Nom</p>
-									<p class="message__timestamp ">18:06 PM - July 24 </p>
-								</div>
-								<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
-									quas
-									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
-									voluptatibus iusto
-									omnis harum illum iste distinctio expedita illo!
-								</p>
-							</div>
-							<div class="message">
-								<div class="user ">
-									<button class="btn user__btn ">
-										<img class="user__btn__pic" src="./assets/user.jpg">
-									</button>
-									<p class="user__name ">Nom</p>
-									<p class="message__timestamp ">18:06 PM - July 24 </p>
-								</div>
-								<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
-									quas
-									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
-									voluptatibus iusto
-									omnis harum illum iste distinctio expedita illo!
-								</p>
-							</div>
-							<div class="message">
-								<div class="user ">
-									<button class="btn user__btn ">
-										<img class="user__btn__pic" src="./assets/user.jpg">
+									<button type="button" class="user__btn ">
+										<img class="user__pic" src="./assets/user.jpg">
 									</button>
 									<p class="user__name ">Nom</p>
 									<p class="message__timestamp ">18:06 PM - July 24 </p>
@@ -298,14 +301,30 @@
 							<div class="container chatbox__write__container">
 								<textarea name="typing-area" placeholder="Ecrire un message..."></textarea>
 							</div>
-							<button class="btn chatbox__write__btn " type="button">Envoyer</button>
-						</div> -->
+							<button class="chatbox__write__btn " type="button">ENVOYER</button>
+						</div>
 
 						<!-- case 3 : liste des utilisateurs -->
-						<!-- <div class="border-bottom user">
-							<img class="user__pic" src="./assets/user.jpg">
-							<h3 class="user__name">Nom</h3>
+						<!-- <div class="chatbox__list d-flex flex-column">
+							<button type="button" class="chatbox__item__btn">
+								<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+								</svg>
+								<h3 class="item__title top-50 translate-middle-y">Nom utilisateur</h3>
+								<h4 class="item__info">En ligne, en jeu</h4>
+							</button>
+							<button type="button" class="chatbox__item__btn">
+								<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+								</svg>
+								<h3 class="item__title top-50 translate-middle-y">Nom utilisateur</h3>
+								<h4 class="item__info">En ligne, en jeu</h4>
+							</button>
 						</div> -->
+
+						<!-- case 4 : menu utilisateur -->
 
 					</div>
 				</div>

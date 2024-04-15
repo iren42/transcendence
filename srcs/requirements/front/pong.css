@@ -10,6 +10,15 @@
 }
 
 @font-face {
+  font-family: "mars";
+  src:
+    local('Mars Needs Cunnilingus'),
+    url('./assets/fonts/Mars-Needs-Cunnilingus.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "8bitoperator_jve";
   src:
     local('8bitoperator_jve'),
@@ -32,11 +41,46 @@
   font-style: normal;
 }
 
+/* __________________ ICONS __________________*/
+.bi {
+  fill: #e5e5e5;
+  height: 24px;
+  width: auto;
+}
+
+.bi-bell-fill {
+  height: 20px;
+  width: auto;
+}
+
+.bi-heart-fill {
+  height: 16px;
+  /* z-index: 1; */
+  background-color: transparent;
+  width: auto;
+  align-self: flex-end;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  fill: transparent;
+}
+
+.bi-arrow-left-short {
+  height: 32px;
+  width: auto;
+  /* margin-left: 8px; */
+}
+
+/* __________________ GLOBAL __________________*/
+
 * {
-  background-color: #121212;
+  background-color: transparent;
   color: #e5e5e5;
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
+}
+
+body {
+  background-color: #121212;
 }
 
 /* typescale 1.333 */
@@ -56,6 +100,11 @@ h3 {
   font-size: 21px;
 }
 
+h4 {
+  font-family: "Comic Neue";
+  font-size: 12px;
+}
+
 p {
   font-family: "Comic Neue";
   font-size: 16px;
@@ -65,7 +114,7 @@ p {
 .dropdown-menu {
   max-height: 300px;
   overflow-y: scroll;
-  scrollbar-color:  rgba(201, 111, 38, 0.4) #121212;
+  scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
 }
 
@@ -79,7 +128,7 @@ p {
 }
 
 .navbar {
-  height: 64px;
+  height: 80px;
   border: 0.5rem;
   border-style: solid;
   border-color: #e5e5e5;
@@ -104,89 +153,147 @@ p {
   width: 24px;
 }
 
+.wrapper-connexion {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-connexion>.btn-orange {
+  height: 80px;
+  width: 380px;
+  margin: 8px;
+
+}
+
+.btn-orange {
+  color: #C96F26;
+  border: solid #C96F26;
+  /* font-family: "8bitoperator_jve"; */
+  font-family: "mars";
+  font-size: 28px;
+
+  /* padding: 4px; */
+  &:hover {
+    color: rgb(194, 183, 0);
+    border-color: rgb(194, 183, 0);
+  }
+}
+
+.btn-heart {
+  /* padding: 8px 4px 8px 4px; */
+  border: none;
+  height: 40px;
+  margin-bottom: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: fit-content;
+  font-family: "8bitoperator_jve";
+  font-size: 21px;
+
+  & .bi-heart-fill {
+    left: 5%;
+  }
+
+  &:hover {
+    &>svg {
+      fill: red;
+      /* stroke : red; */
+    }
+  }
+
+}
+
+.btn-heart__title {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
 
 /* __________________ MODALS __________________*/
+.modal-content {
+  background-color: #121212;
+  color: #e5e5e5;
+  border: solid #e5e5e5;
+  border-width: 8px;
+  border-radius: 0%;
+}
+
 .modal-body {
+
   display: grid;
   place-items: center;
 }
 
-/* __________________ ICONS __________________*/
-.bi {
-  fill: #e5e5e5;
-  height: 24px;
-  width: auto;
+.modal-header {
+  position: relative;
+  border: none;
+  height: fit-content;
+  padding-top: 32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.bi-bell-fill {
-  height: 20px;
-  width: auto;
+.modal-footer {
+  justify-content: center;
+  border: none;
 }
 
-.bi-heart-fill {
-  height: 16px;
-  width: auto;
-  align-self: flex-end;
-  margin-bottom: 4px;
+.modal-title {
+  position: absolute;
+
+  height: fit-content;
+  font-size: 28px;
+  font-family: "8bitoperator_jve";
+  left: 50%;
+  transform: translate(-50%, 0);
 }
-.bi-arrow-left-short {
-  height: 32px;
-  width: auto;
-  /* margin-left: 8px; */
+
+.modal__input {
+  margin: 16px;
+  width: 70%;
+  border: 1px solid #e5e5e5;
+  padding: 16px;
 }
 
 /* __________________ CHATBOX __________________*/
 .chatbox__list {
   width: 100%;
 }
+
 /* __________________ USER (CHATBOX)__________________*/
 .user {
   height: 56px;
-  display: flex;
-  align-items: flex-end;
+  position: relative;
 }
 
-.user__btn__pic {
+.user__btn {
+  border: none;
+  text-decoration: none;
+
+}
+
+.user__pic {
+  position: absolute;
   border-radius: 50%;
+  top: 12px;
+  left: 16px;
   height: 36px;
   width: 36px;
 }
 
 .user__name {
-  font-family: "Comic Neue";
-  margin: 0 0 4px 0;
+  position: absolute;
+  top: 8px;
+  left: 64px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* __________________ CANAL (CHATBOX)__________________*/
-.chatbox__list__item {
-  width: 100%;
-  padding: 8px 16px 8px 16px;
-  border: 0;
-  text-align: left;
-  height: 56px;
-
-  &:focus {
-    color: #C96F26;
-  }
-}
-.canal__name {
-  /* font-family: "8bitoperator_jve"; */
-  font-size: 16px;
-  margin-bottom: 0.25rem;
-  padding-left: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-}
-.canal__message {
-  width: 100%;
-  margin-bottom: 0;
-  padding-left: 30px;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 /* __________________ MESSAGE (CHATBOX)__________________*/
 .message {
   overflow: hidden;
@@ -194,8 +301,12 @@ p {
 }
 
 .message__timestamp {
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  top: 32px;
+  left: 64px;
   font-size: 12px;
-  margin: 0 0 8px 12px;
 }
 
 .message__text {
@@ -205,13 +316,76 @@ p {
 }
 
 .chatbox__message {
-  overflow-x: hidden; 
+  overflow-x: hidden;
   overflow-y: scroll;
   white-space: wrap;
   /* scrollbar-color: #3D6C74 #121212; */
-  scrollbar-color:  rgba(201, 111, 38, 0.4) #121212;
+  scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
 }
+
+/* __________________ CANAL (CHATBOX)__________________*/
+.chatbox__item__btn {
+  width: 100%;
+  /* padding: 8px 4px 8px 4px; */
+  border: none;
+  position: relative;
+  height: 56px;
+
+  & .bi-heart-fill {
+    position: absolute;
+    left: 5%;
+  }
+
+  &:hover {
+    &>svg {
+      fill: red;
+      /* stroke : red; */
+    }
+  }
+}
+
+.item__title {
+  font-family: "Comic Neue";
+  position: absolute;
+  left: 13%;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item__info {
+  position: absolute;
+  top: 70%;
+  left: 13%;
+  /* margin-bottom : 0; */
+  padding-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.canal__name {
+  /* font-family: "8bitoperator_jve"; */
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 0.25rem;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.canal__message {
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 30px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* __________________ CHATBOX __________________*/
 .chatbox {
@@ -228,21 +402,23 @@ p {
 .chatbox__list {
   height: 100%;
   width: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   overflow-y: scroll;
   white-space: wrap;
-  scrollbar-color:  rgba(201, 111, 38, 0.4) #121212;
+  scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
 }
+
 .chatbox__navbar__container {
   justify-content: space-evenly !important;
-  min-width: 0;
+  min-width: 100px;
 }
 
 .chatbox__navbar__canal {
   white-space: nowrap;
   overflow: hidden;
 }
+
 .chatbox__nav__btn {
   border: none;
   font-family: "8bitoperator_jve";
@@ -266,7 +442,7 @@ p {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   background-color: transparent;
   border-top: solid rgba(255, 255, 255, 0.50);
 }
@@ -278,10 +454,14 @@ p {
 .chatbox__write__btn {
   background-color: #C96F26;
   color: #e5e5e5;
-  width: fit-content;
-  height: fit-content;
+  border: none;
+  /* width: fit-content;
+  height: fit-content; */
+  padding: 4px 8px 4px 8px;
   margin-right: 8px;
   margin-bottom: 8px;
+  font-family: "mars";
+  font-size: 24px;
 
   &:active:focus {
     background-color: rgba(201, 111, 38, 0.8);
@@ -320,7 +500,7 @@ textarea {
   background-color: transparent;
   resize: none;
   outline: none;
-  scrollbar-color:  rgba(201, 111, 38, 0.4) #121212;
+  scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
 
   &:focus {
