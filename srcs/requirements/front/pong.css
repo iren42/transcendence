@@ -70,6 +70,17 @@
   /* margin-left: 8px; */
 }
 
+.bi-three-dots-vertical {
+  height: 16px;
+  width: auto;
+}
+
+.bi-circle-fill {
+  height: 8px;
+  width: auto;
+  fill: rgba(201, 111, 38, 1);
+}
+
 /* __________________ GLOBAL __________________*/
 
 * {
@@ -112,10 +123,51 @@ p {
 
 /* __________________ NAVBAR __________________*/
 .dropdown-menu {
-  max-height: 300px;
-  overflow-y: scroll;
+  background-color: #121212;
+  border: 1px solid #e5e5e5;
+}
+
+.dropdown-item-dark {
+  color: #e5e5e5;
+}
+
+.dropdown-notif {
+  width: 400px;
+  max-height: 288px;
+  overflow: scroll;
   scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
+}
+
+div.notif {
+  padding: 4px 16px 4px 16px;
+  white-space: nowrap;
+  height: 64px;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+}
+
+li:last-child>div.notif {
+  border: none;
+}
+
+.notif__btn {
+
+  white-space: nowrap;
+}
+
+.notif__btn__more {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+
+  transform: translate(-50%, 0);
+  border: none;
+}
+
+.get_username {
+  font-weight: bold;
+  margin-left: 8px;
 }
 
 /* hide .dropdown-menu's caret */
@@ -182,6 +234,27 @@ p {
   }
 }
 
+.btn-arrow {
+  width: 100%;
+  border: none;
+  text-align: left;
+
+  & .bi-arrow-left-short {
+    padding-bottom: 8px;
+  }
+}
+
+
+.btn-arrow__title {
+  font-family: "8bitoperator_jve";
+  font-size: 21px;
+  margin-left: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
 .btn-heart {
   /* padding: 8px 4px 8px 4px; */
   border: none;
@@ -204,6 +277,17 @@ p {
     }
   }
 
+}
+
+.btn-heart-sm {
+  font-size: 12px;
+  margin: 0px 4px 0px 4px;
+  height: 32px;
+
+  & .bi-heart-fill {
+    width: 12px;
+    height: auto;
+  }
 }
 
 .btn-heart__title {
@@ -347,6 +431,7 @@ p {
 
 .item__title {
   font-family: "Comic Neue";
+  font-size: 23px;
   position: absolute;
   left: 13%;
   margin: 0 0 4px 0;
@@ -355,6 +440,8 @@ p {
 }
 
 .item__info {
+  font-family: "Comic Neue";
+  font-size: 16px;
   position: absolute;
   top: 70%;
   left: 13%;
