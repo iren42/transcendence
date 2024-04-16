@@ -127,12 +127,12 @@ p {
   border: 1px solid #e5e5e5;
 }
 
-.dropdown-item-dark {
+.dropdown-item {
   color: #e5e5e5;
 }
 
-.dropdown-notif {
-  width: 400px;
+.dropdown__notif {
+  width: 380px;
   max-height: 288px;
   overflow: scroll;
   scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
@@ -147,7 +147,7 @@ div.notif {
   position: relative;
 }
 
-li:last-child>div.notif {
+li:last-child > div.notif {
   border: none;
 }
 
@@ -184,6 +184,8 @@ li:last-child>div.notif {
   border: 0.5rem;
   border-style: solid;
   border-color: #e5e5e5;
+  white-space: nowrap;
+  min-width: 200px;
 }
 
 .navbar-brand {
@@ -198,13 +200,17 @@ li:last-child>div.notif {
 
 .nav-item {
   margin-left: 8px;
+  margin-right: 8px;
 }
 
 .navbar-toggler-icon {
   height: 24px;
   width: 24px;
 }
-
+.container__game {
+  height: 100%;
+  width: 100%;
+}
 .wrapper-connexion {
   height: 100%;
   display: flex;
@@ -265,6 +271,9 @@ li:last-child>div.notif {
   width: fit-content;
   font-family: "8bitoperator_jve";
   font-size: 21px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   & .bi-heart-fill {
     left: 5%;
@@ -286,6 +295,17 @@ li:last-child>div.notif {
 
   & .bi-heart-fill {
     width: 12px;
+    height: auto;
+  }
+}
+
+.btn-heart-md {
+  font-size: 16px;
+  margin: 0px 4px 0px 4px;
+  height: 32px;
+
+  & .bi-heart-fill {
+    width: 14px;
     height: auto;
   }
 }
@@ -342,11 +362,6 @@ li:last-child>div.notif {
   width: 70%;
   border: 1px solid #e5e5e5;
   padding: 16px;
-}
-
-/* __________________ CHATBOX __________________*/
-.chatbox__list {
-  width: 100%;
 }
 
 /* __________________ USER (CHATBOX)__________________*/
@@ -413,14 +428,40 @@ li:last-child>div.notif {
   width: 100%;
   /* padding: 8px 4px 8px 4px; */
   border: none;
+  /* border: 1px solid white; */
   position: relative;
-  height: 56px;
+  height: 64px;
 
   & .bi-heart-fill {
     position: absolute;
-    left: 5%;
+    left: 8px;
+  top: 50%;
+  transform: translate( 0, -50%);
   }
 
+ & > span.item__title {
+  font-family: "Comic Neue";
+  font-size: 23px;
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  transform: translate( 0, -50%);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+& > span.item__info {
+  font-family: "Comic Neue";
+  font-size: 12px;
+  position: absolute;
+  top: 70%;
+  left: 34px;
+  /* margin-bottom : 0; */
+  /* padding-bottom: 8px; */
+  white-space: nowrap;
+  overflow: hidden;
+}
   &:hover {
     &>svg {
       fill: red;
@@ -429,31 +470,9 @@ li:last-child>div.notif {
   }
 }
 
-.item__title {
-  font-family: "Comic Neue";
-  font-size: 23px;
-  position: absolute;
-  left: 13%;
-  margin: 0 0 4px 0;
-  white-space: nowrap;
-  overflow: hidden;
-}
 
-.item__info {
-  font-family: "Comic Neue";
-  font-size: 16px;
-  position: absolute;
-  top: 70%;
-  left: 13%;
-  /* margin-bottom : 0; */
-  padding-bottom: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.canal__name {
-  /* font-family: "8bitoperator_jve"; */
+/* .canal__name {
+  font-family: "8bitoperator_jve";
   text-align: left;
   font-size: 16px;
   margin-bottom: 0.25rem;
@@ -471,7 +490,7 @@ li:last-child>div.notif {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
 
 /* __________________ CHATBOX __________________*/
@@ -484,11 +503,12 @@ li:last-child>div.notif {
   border-top: 0rem;
   border-style: solid;
   border-color: #e5e5e5;
+  min-width: 200px;
 }
 
 .chatbox__list {
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   overflow-x: hidden;
   overflow-y: scroll;
   white-space: wrap;
@@ -506,7 +526,7 @@ li:last-child>div.notif {
   overflow: hidden;
 }
 
-.chatbox__nav__btn {
+/* .chatbox__nav__btn {
   border: none;
   font-family: "8bitoperator_jve";
   font-size: 21px;
@@ -520,7 +540,7 @@ li:last-child>div.notif {
   &:focus {
     color: #C96F26;
   }
-}
+} */
 
 .chatbox__write {
   height: 140px;
@@ -566,10 +586,14 @@ li:last-child>div.notif {
   }
 }
 
-.flex-basis-scroll {
-  flex-basis: 100%;
+.flex-grow-scroll {
+  /* flex-basis: 100%;
   max-height: 100%;
-  min-height: 200px;
+  min-height: 200px; */
+  height: 1px; /* needed for the overflow to trigger */
+  flex-grow: 1;
+  flex-flow: column nowrap;
+  overflow: hidden;
 }
 
 textarea {
