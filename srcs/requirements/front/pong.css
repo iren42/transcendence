@@ -139,15 +139,19 @@ p {
   scrollbar-width: thin;
 }
 
+.dropdown__notif>li {
+  width: max-content;
+}
+
 div.notif {
   padding: 4px 16px 4px 16px;
   white-space: nowrap;
   height: 64px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px dashed #e5e5e5;
   position: relative;
 }
 
-li:last-child > div.notif {
+li:last-child>div.notif {
   border: none;
 }
 
@@ -207,10 +211,12 @@ li:last-child > div.notif {
   height: 24px;
   width: 24px;
 }
+
 .container__game {
   height: 100%;
   width: 100%;
 }
+
 .wrapper-connexion {
   height: 100%;
   display: flex;
@@ -435,33 +441,34 @@ li:last-child > div.notif {
   & .bi-heart-fill {
     position: absolute;
     left: 8px;
-  top: 50%;
-  transform: translate( 0, -50%);
+    top: 50%;
+    transform: translate(0, -50%);
   }
 
- & > span.item__title {
-  font-family: "Comic Neue";
-  font-size: 23px;
-  position: absolute;
-  top: 50%;
-  left: 32px;
-  transform: translate( 0, -50%);
-  margin: 0 0 4px 0;
-  white-space: nowrap;
-  overflow: hidden;
-}
+  &>span.item__title {
+    font-family: "Comic Neue";
+    font-size: 23px;
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    transform: translate(0, -50%);
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-& > span.item__info {
-  font-family: "Comic Neue";
-  font-size: 12px;
-  position: absolute;
-  top: 70%;
-  left: 34px;
-  /* margin-bottom : 0; */
-  /* padding-bottom: 8px; */
-  white-space: nowrap;
-  overflow: hidden;
-}
+  &>span.item__info {
+    font-family: "Comic Neue";
+    font-size: 12px;
+    position: absolute;
+    top: 70%;
+    left: 34px;
+    /* margin-bottom : 0; */
+    /* padding-bottom: 8px; */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
   &:hover {
     &>svg {
       fill: red;
@@ -590,7 +597,8 @@ li:last-child > div.notif {
   /* flex-basis: 100%;
   max-height: 100%;
   min-height: 200px; */
-  height: 1px; /* needed for the overflow to trigger */
+  height: 1px;
+  /* needed for the overflow to trigger */
   flex-grow: 1;
   flex-flow: column nowrap;
   overflow: hidden;
