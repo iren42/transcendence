@@ -156,7 +156,6 @@ li:last-child>div.notif {
 }
 
 .notif__btn {
-
   white-space: nowrap;
 }
 
@@ -164,7 +163,6 @@ li:last-child>div.notif {
   position: absolute;
   top: 50%;
   right: 0%;
-
   transform: translate(-50%, 0);
   border: none;
 }
@@ -401,6 +399,7 @@ li:last-child>div.notif {
 
 /* __________________ MESSAGE (CHATBOX)__________________*/
 .message {
+  flex: none;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -420,23 +419,15 @@ li:last-child>div.notif {
   white-space: wrap;
 }
 
-.chatbox__message {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  white-space: wrap;
-  /* scrollbar-color: #3D6C74 #121212; */
-  scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
-  scrollbar-width: thin;
-}
 
 /* __________________ CANAL (CHATBOX)__________________*/
 .chatbox__item__btn {
   width: 100%;
-  /* padding: 8px 4px 8px 4px; */
+  height: 64px;
+  flex: none;
   border: none;
   /* border: 1px solid white; */
   position: relative;
-  height: 64px;
 
   & .bi-heart-fill {
     position: absolute;
@@ -465,8 +456,11 @@ li:last-child>div.notif {
     left: 34px;
     /* margin-bottom : 0; */
     /* padding-bottom: 8px; */
+    max-width: 380px;
     white-space: nowrap;
     overflow: hidden;
+    /* text-overflow: ellipsis; */
+    /* max-width: 300px; */
   }
 
   &:hover {
@@ -478,47 +472,32 @@ li:last-child>div.notif {
 }
 
 
-/* .canal__name {
-  font-family: "8bitoperator_jve";
-  text-align: left;
-  font-size: 16px;
-  margin-bottom: 0.25rem;
-  margin-left: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-}
-
-.canal__message {
-  width: 100%;
-  margin-bottom: 0;
-  padding-left: 30px;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
 
 /* __________________ CHATBOX __________________*/
 .chatbox {
   height: 100%;
   width: 100%;
-  border-bottom: 0.5rem;
-  border-right: 0.5rem;
-  border-left: 0.5rem;
-  border-top: 0rem;
+  border-bottom: 8px;
+  border-right: 8px;
+  border-left: 8px;
+  border-top: none;
   border-style: solid;
   border-color: #e5e5e5;
   min-width: 200px;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  /* flex: none; */
 }
 
 .chatbox__list {
-  /* height: 100%;
-  width: 100%; */
+  height: 100%;
+  width: 100%;;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
-  white-space: wrap;
+  white-space: nowrap;
   scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
 }
@@ -533,70 +512,55 @@ li:last-child>div.notif {
   overflow: hidden;
 }
 
-/* .chatbox__nav__btn {
-  border: none;
-  font-family: "8bitoperator_jve";
-  font-size: 21px;
-  padding-left: 4px;
-  padding-right: 4px;
-  width: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 
-  &:focus {
-    color: #C96F26;
-  }
-} */
-
+.chatbox__recmessage {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: scroll;
+  scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
+  scrollbar-width: thin;
+}
 .chatbox__write {
   height: 140px;
   width: 100%;
+  flex: none;
   position: relative;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  background-color: transparent;
   border-top: solid rgba(255, 255, 255, 0.50);
 }
 
-.chatbox__write__container {
-  background-color: transparent;
-}
 
 .chatbox__write__btn {
-  background-color: #C96F26;
-  color: #e5e5e5;
-  border: none;
-  /* width: fit-content;
-  height: fit-content; */
+  color: #C96F26;
+  border: solid #C96F26;
   padding: 4px 8px 4px 8px;
   margin-right: 8px;
   margin-bottom: 8px;
   font-family: "mars";
-  font-size: 24px;
+  font-size: 16px;
 
   &:active:focus {
-    background-color: rgba(201, 111, 38, 0.8);
-    color: #e5e5e5;
+    color: rgba(194, 183, 0, 0.8);
+    border-color: rgba(194, 183, 0, 0.8);
   }
 
   &:hover {
-    background-color: rgba(201, 111, 38, 0.8);
-    color: #e5e5e5;
+    color: rgb(194, 183, 0);
+    border-color: rgb(194, 183, 0);
   }
 
   &:active {
-    background-color: rgba(201, 111, 38, 0.8);
-    color: #e5e5e5;
+    color: rgba(194, 183, 0, 0.8);
+    border-color: rgba(194, 183, 0, 0.8);
   }
 }
 
 .flex-grow-scroll {
-  /* flex-basis: 100%;
-  max-height: 100%;
-  min-height: 200px; */
   height: 1px;
   /* needed for the overflow to trigger */
   flex-grow: 1;
