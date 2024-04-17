@@ -107,7 +107,7 @@ h2 {
 }
 
 h3 {
-  margin-top: 16px;
+  margin-top: 8px;
   font-family: "8bitoperator_jve";
   font-size: 21px;
 }
@@ -249,20 +249,28 @@ li:last-child>div.notif {
     border-color: rgb(194, 183, 0);
   }
 }
+
 .user__edit {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  align-items: left;
+  justify-content: center;
+  height: 280px;
+  width: 600px;
+  column-gap: 40px;
+  row-gap: 16px;
 }
-.user__edit > .btn-orange {
+
+.user__edit>.btn-orange {
   font-size: 16px;
-  /* display: none; */
+  display: none;
 }
 
 .history {
   margin-top: 32px;
 }
+
 .btn-arrow {
   width: 100%;
   border: none;
@@ -403,11 +411,17 @@ li:last-child>div.notif {
 
 .user__pic {
   border-radius: 50%;
+  height: 160px;
+  width: 160px;
 }
 
-/* .container__main > .user > .user__pic:hover {
-  border: solid white;
-} */
+.user__edit>.user__pic {
+  margin: 16px;
+}
+
+.user__name {
+  margin-left: 32px;
+}
 
 .user--sm {
   height: 56px;
@@ -425,6 +439,7 @@ li:last-child>div.notif {
 
 .user__name--sm {
   position: absolute;
+  margin: 0px;
   overflow: hidden;
   white-space: nowrap;
   top: 8px;
@@ -526,7 +541,8 @@ li:last-child>div.notif {
 
 .chatbox__list {
   height: 100%;
-  width: 100%;;
+  width: 100%;
+  ;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -557,6 +573,7 @@ li:last-child>div.notif {
   scrollbar-color: rgba(201, 111, 38, 0.4) #121212;
   scrollbar-width: thin;
 }
+
 .chatbox__write {
   height: 140px;
   width: 100%;
