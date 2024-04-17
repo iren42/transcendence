@@ -160,12 +160,33 @@
 					</div>
 				</nav>
 
-				<!-- GAMING ZONE or CONNEXION ZONE -->
+				<!-- THE main ZONE -->
 				<!-- <div class="row gx-0 flex-grow-1 "> -->
 				<div class="main flex-grow-scroll">
+
+					<!-- THE user profile zone -->
+					<div class="container container__main">
+						<div class="user">
+							<div class="user__edit">
+								<img class="user__pic " src="./assets/user.jpg">
+								<button class="btn-orange" type="button">Editer mon profil</button>
+							</div>
+							<h3 class="user__name ">Username</h3>
+						</div>
+						<div class="history">
+							<h2>HISTORIQUE</h2>
+							<ul class="history__list">
+								<li class="get_history_item">item</li>
+								<li class="get_history_item">item</li>
+								<li class="get_history_item">item</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- PUT THIS ON CONNEXION PAGE-->
 					<!-- Buttons trigger for modals -->
-					<div class="container container__game">
-						<div class="wrapper-connexion">
+					<!-- <div class="container h-100 w-100">
+						<div class="wrapper-btn-connexionpage">
 							<button type="button" class="btn-orange" data-bs-toggle="modal"
 								data-bs-target="#create-account-modal">
 								CREER UN COMPTE
@@ -179,7 +200,7 @@
 								SE CONNECTER AVEC 42
 							</button>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- Create an account Modal -->
 					<div class="modal fade" id="create-account-modal" tabindex="-1"
@@ -296,12 +317,14 @@
 							</div>
 						</div>
 					</div>
+					<!-- end PUT THIS ON CONNEXION PAGE-->
 				</div>
 			</div>
 
 			<!-- THE chat -->
 			<div class="col-md-12 col-lg-4 col-xl-3 h-100 d-flex flex-column order-lg-1 ">
 				<!-- everything inside this col can change dynamically-->
+
 				<nav class="navbar navbar-expand">
 					<div class="container-fluid d-flex flex-row position-relative">
 
@@ -322,102 +345,99 @@
 
 				<div class="chatbox flex-grow-scroll">
 
-						<!-- case 1 : liste des discussions -->
-						<div class="chatbox__list ">
-							<button type="button" class="chatbox__item__btn ">
-								<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title ">Nom discussion</span>
-								<span class="item__info">Dernier message dans ce canal. Lorem ipsum, dolor sit amet
-									consectetur adipisicing elit. Non quas
-									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
-									voluptatibus iusto
-									omnis harum illum iste di</span>
-							</button>
-						</div>
+					<!-- case 1 : liste des discussions -->
+					<!-- <div class="chatbox__list ">
+						<button type="button" class="chatbox__item__btn ">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="item__title ">Nom discussion</span>
+							<span class="item__info">Dernier message dans ce canal. Lorem ipsum, dolor sit amet
+								consectetur adipisicing elit. Non quas
+								nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
+								voluptatibus iusto
+								omnis harum illum iste di</span>
+						</button>
+					</div> -->
 
-						<!-- case 2 : discussion -->
-						<!-- <div class="chatbox__recmessage">
-							<div class="message">
-								<div class="user ">
-									<button type="button" class="user__btn ">
-										<img class="user__pic" src="./assets/user.jpg">
-									</button>
-									<p class="user__name ">Nom</p>
-									<p class="message__timestamp ">18:06 PM - July 24 </p>
-								</div>
-								<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
-									quas
-									nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
-									voluptatibus iusto
-									omnis harum illum iste distinctio expedita illo!
-								</p>
+					<!-- case 2 : discussion -->
+					<div class="chatbox__recmessage">
+						<div class="message">
+							<div class="user user--sm">
+								<button type="button" class="user__btn user__btn--sm">
+									<img class="user__pic user__pic--sm" src="./assets/user.jpg">
+								</button>
+								<p class="user__name user__name--sm">Nom</p>
+								<p class="message__timestamp ">18:06 PM - July 24 </p>
 							</div>
+							<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
+								quas
+								nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
+								voluptatibus iusto
+								omnis harum illum iste distinctio expedita illo!
+							</p>
 						</div>
-
-						<div class="chatbox__write ">
-							<div class="container chatbox__write__container">
-								<textarea name="typing-area" placeholder="Ecrire un message..."></textarea>
-							</div>
-							<button class="chatbox__write__btn " type="button">ENVOYER</button>
-						</div> -->
-
-						<!-- case 3 : liste des utilisateurs -->
-						<!-- <div class="chatbox__list ">
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title top-50 translate-middle-y">Nom utilisateur</span>
-								<span class="item__info">En ligne, en jeu</span>
-							</button>
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title top-50 translate-middle-y">Nom utilisateur</span>
-								<span class="item__info">En ligne, en jeu</span>
-							</button>
-						</div> -->
-
-						<!-- case 4 : menu utilisateur (onclick sur username et sur user pic )-->
-						<div class="chatbox__list">
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title top-50 translate-middle-y">Ajouter comme ami</span>
-							</button>
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title top-50 translate-middle-y">Voir son profil</span>
-							</button>
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill top-50 translate-middle-y" viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title top-50 translate-middle-y">Bloquer</span>
-							</button>
-						</div>
-
 					</div>
+
+					<div class="chatbox__write ">
+						<div class="container chatbox__write__container">
+							<textarea name="typing-area" placeholder="Ecrire un message..."></textarea>
+						</div>
+						<button class="chatbox__write__btn " type="button">ENVOYER</button>
+					</div>
+
+					<!-- case 3 : liste des utilisateurs -->
+					<!-- <div class="chatbox__list ">
+							<button type="button" class="chatbox__item__btn">
+								<svg xmlns="http://www.w3.org/2000/svg"
+									class="bi bi-heart-fill " viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+								</svg>
+								<span class="item__title ">Nom utilisateur</span>
+								<span class="item__info">En ligne, en jeu</span>
+							</button>
+							<button type="button" class="chatbox__item__btn">
+								<svg xmlns="http://www.w3.org/2000/svg"
+									class="bi bi-heart-fill " viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+								</svg>
+								<span class="item__title ">Nom utilisateur</span>
+								<span class="item__info">En ligne, en jeu</span>
+							</button>
+						</div> -->
+
+					<!-- case 4 : menu utilisateur (onclick sur username et sur user pic )-->
+					<!-- <div class="chatbox__list">
+						<button type="button" class="chatbox__item__btn">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="item__title ">Ajouter comme ami</span>
+						</button>
+						<button type="button" class="chatbox__item__btn">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="item__title ">Voir son profil</span>
+						</button>
+						<button type="button" class="chatbox__item__btn">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="item__title ">Bloquer</span>
+						</button>
+					</div> -->
+
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

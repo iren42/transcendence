@@ -107,6 +107,7 @@ h2 {
 }
 
 h3 {
+  margin-top: 16px;
   font-family: "8bitoperator_jve";
   font-size: 21px;
 }
@@ -210,12 +211,15 @@ li:last-child>div.notif {
   width: 24px;
 }
 
-.container__game {
+.container__main {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 }
 
-.wrapper-connexion {
+.wrapper-btn-connexionpage {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -223,7 +227,7 @@ li:last-child>div.notif {
   justify-content: center;
 }
 
-.wrapper-connexion>.btn-orange {
+.wrapper-btn-connexionpage>.btn-orange {
   height: 80px;
   width: 380px;
   margin: 8px;
@@ -236,6 +240,8 @@ li:last-child>div.notif {
   /* font-family: "8bitoperator_jve"; */
   font-family: "mars";
   font-size: 28px;
+  height: fit-content;
+  width: fit-content;
 
   /* padding: 4px; */
   &:hover {
@@ -243,7 +249,20 @@ li:last-child>div.notif {
     border-color: rgb(194, 183, 0);
   }
 }
+.user__edit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.user__edit > .btn-orange {
+  font-size: 16px;
+  /* display: none; */
+}
 
+.history {
+  margin-top: 32px;
+}
 .btn-arrow {
   width: 100%;
   border: none;
@@ -368,33 +387,48 @@ li:last-child>div.notif {
   padding: 16px;
 }
 
+
+
+
 /* __________________ USER (CHATBOX)__________________*/
 .user {
-  height: 56px;
-  position: relative;
+  height: fit-content;
+  max-width: 800px;
 }
 
 .user__btn {
   border: none;
   text-decoration: none;
-
 }
 
 .user__pic {
-  position: absolute;
   border-radius: 50%;
+}
+
+/* .container__main > .user > .user__pic:hover {
+  border: solid white;
+} */
+
+.user--sm {
+  height: 56px;
+  width: 100%;
+  position: relative;
+}
+
+.user__pic--sm {
+  position: absolute;
   top: 12px;
   left: 16px;
   height: 36px;
   width: 36px;
 }
 
-.user__name {
+.user__name--sm {
   position: absolute;
-  top: 8px;
-  left: 64px;
   overflow: hidden;
   white-space: nowrap;
+  top: 8px;
+  left: 64px;
 }
 
 /* __________________ MESSAGE (CHATBOX)__________________*/
