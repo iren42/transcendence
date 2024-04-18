@@ -14,27 +14,20 @@
 
 	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
 	<link rel="stylesheet" href="pong.css">
+	<link rel="stylesheet" href="pong.chat.css">
+	<link rel="stylesheet" href="pong.navbar.css">
+	<link rel="stylesheet" href="pong.main.css">
 </head>
 
 <body>
 	<div class="container-fluid vh-100">
 		<div class="row g-3 h-100 py-3">
 			<div class="col-md-12 col-lg-8 col-xl-9 h-100 d-flex flex-column order-lg-2 ">
+
 				<nav class="navbar navbar-expand">
 					<div class="container-fluid">
-						<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-							data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-list" viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-							</svg>
-						</button> -->
-
-						<!-- <div class="collapse navbar-collapse position-relative" id="navbarTogglerDemo02"> -->
 						<a class="navbar-brand " href="#">PONG+</a>
 						<ul class="navbar-nav ">
-
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle caret-off" href="#" id="navbarNotifMenu"
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,7 +36,7 @@
 											d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
 									</svg>
 								</a>
-								<ul class="dropdown-menu dropdown-menu-end dropdown__notif"
+								<ul class="dropdown-menu dropdown-menu-end dropdown-menu--lg"
 									aria-labelledby="navbarDropdownMenuLink">
 									<li>
 										<div class="notif">
@@ -53,9 +46,8 @@
 											</svg>
 											<span class="get_username">uuuuuuuuuuuuuuuuuuuuuuuusername</span> vous
 											défie au <span class="get_game">jeu</span>
-											<div class="notif__btn">
+											<div class="wrapper__btn-notif">
 												<button type="button" class="btn-heart btn-heart-sm">
-
 													<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill"
 														viewBox="0 0 16 16">
 														<path fill-rule="evenodd"
@@ -64,7 +56,6 @@
 													Refuser
 												</button>
 												<button type="button" class="btn-heart btn-heart-sm">
-
 													<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill"
 														viewBox="0 0 16 16">
 														<path fill-rule="evenodd"
@@ -72,7 +63,7 @@
 													</svg>
 													Accepter
 												</button>
-												<button type="button" class="notif__btn__more">
+												<button type="button" class="btn-three-dots">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 														fill="currentColor" class="bi bi-three-dots-vertical"
 														viewBox="0 0 16 16">
@@ -83,6 +74,7 @@
 											</div>
 										</div>
 									</li>
+
 									<li>
 										<div class="notif">
 											<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-circle-fill"
@@ -91,9 +83,8 @@
 											</svg>
 											<span class="get_username">uuuuuuuuuuuuuuuuuuuuuuuusername</span> vous
 											défie au <span class="get_game">jeu</span>
-											<div class="notif__btn">
+											<div class="wrapper__btn-notif">
 												<button type="button" class="btn-heart btn-heart-sm">
-
 													<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill"
 														viewBox="0 0 16 16">
 														<path fill-rule="evenodd"
@@ -102,7 +93,6 @@
 													Refuser
 												</button>
 												<button type="button" class="btn-heart btn-heart-sm">
-
 													<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill"
 														viewBox="0 0 16 16">
 														<path fill-rule="evenodd"
@@ -110,7 +100,7 @@
 													</svg>
 													Accepter
 												</button>
-												<button type="button" class="notif__btn__more">
+												<button type="button" class="btn-three-dots">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 														fill="currentColor" class="bi bi-three-dots-vertical"
 														viewBox="0 0 16 16">
@@ -121,6 +111,7 @@
 											</div>
 										</div>
 									</li>
+
 								</ul>
 							</li>
 							<li class="nav-item dropdown">
@@ -162,17 +153,14 @@
 
 				<!-- THE main ZONE -->
 				<!-- <div class="row gx-0 flex-grow-1 "> -->
-				<div class="main flex-grow-scroll">
+				<div class="main">
 
 					<!-- THE user profile zone -->
-					<div class="container container__main">
-						<div class="user ">
-							<div class="user__edit">
-								<img class="user__pic " src="./assets/user.jpg">
-								<h3 class="user__name ">Username</h3>
+							<div class="profile__edit">
+								<img class="profile__pic " src="./assets/user.jpg">
+								<h3 class="profile__name ">Username</h3>
 								<button class="btn-orange" type="button">Editer mon profil</button>
 							</div>
-						</div>
 						<div class="history">
 							<h2>HISTORIQUE</h2>
 							<ul class="history__list">
@@ -181,7 +169,6 @@
 								<li class="get_history_item">item</li>
 							</ul>
 						</div>
-					</div>
 
 					<!-- PUT THIS ON CONNEXION PAGE-->
 					<!-- Buttons trigger for modals -->
@@ -323,14 +310,12 @@
 
 			<!-- THE chat -->
 			<div class="col-md-12 col-lg-4 col-xl-3 h-100 d-flex flex-column order-lg-1 ">
-				<!-- everything inside this col can change dynamically-->
-
 				<nav class="navbar navbar-expand">
 					<div class="container-fluid d-flex flex-row position-relative">
 
 						<!-- case 1 : liste des discussions et des utilisateurs-->
-						<!-- <button type="button" class="chatbox__nav__btn">DISCUSSIONS</button>
-						<button type="button" class="chatbox__nav__btn">UTILISATEURS</button> -->
+						<!-- <button type="button" class="btn-nav">DISCUSSIONS</button>
+						<button type="button" class="btn-nav">UTILISATEURS</button> -->
 
 						<!-- case 2 : discussion -->
 						<button type="button" class="btn-arrow">
@@ -342,18 +327,17 @@
 						</button>
 					</div>
 				</nav>
-
-				<div class="chatbox flex-grow-scroll">
+				<div class="chat ">
 
 					<!-- case 1 : liste des discussions -->
-					<!-- <div class="chatbox__list ">
-						<button type="button" class="chatbox__item__btn ">
+					<!-- <div class="chat__list ">
+						<button type="button" class="btn-heart-list">
 							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
 								<path fill-rule="evenodd"
 									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
 							</svg>
-							<span class="item__title ">Nom discussion</span>
-							<span class="item__info">Dernier message dans ce canal. Lorem ipsum, dolor sit amet
+							<span class="list__title ">Nom discussion</span>
+							<span class="list__info">Dernier message dans ce canal. Lorem ipsum, dolor sit amet
 								consectetur adipisicing elit. Non quas
 								nemo eum, earum sunt, nobis similique quisquam eveniet pariatur commodi modi
 								voluptatibus iusto
@@ -362,13 +346,13 @@
 					</div> -->
 
 					<!-- case 2 : discussion -->
-					<div class="chatbox__recmessage">
+					<!-- <div class="inbox">
 						<div class="message">
-							<div class="user user--sm">
-								<button type="button" class="user__btn user__btn--sm">
-									<img class="user__pic user__pic--sm" src="./assets/user.jpg">
+							<div class="sender">
+								<button type="button" class="btn-img">
+									<img class="sender__img " src="./assets/user.jpg">
 								</button>
-								<p class="user__name user__name--sm">Nom</p>
+								<p class="sender__name">Nom</p>
 								<p class="message__timestamp ">18:06 PM - July 24 </p>
 							</div>
 							<p class="message__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
@@ -380,69 +364,67 @@
 						</div>
 					</div>
 
-					<div class="chatbox__write ">
-						<div class="container chatbox__write__container">
+					<div class="inbox__textarea">
+						<div class="container ">
 							<textarea name="typing-area" placeholder="Ecrire un message..."></textarea>
 						</div>
-						<button class="chatbox__write__btn " type="button">ENVOYER</button>
-					</div>
+						<button class="btn-orange btn-orange--sm" type="button">ENVOYER</button>
+					</div> -->
 
 					<!-- case 3 : liste des utilisateurs -->
-					<!-- <div class="chatbox__list ">
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill " viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title ">Nom utilisateur</span>
-								<span class="item__info">En ligne, en jeu</span>
-							</button>
-							<button type="button" class="chatbox__item__btn">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="bi bi-heart-fill " viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-								</svg>
-								<span class="item__title ">Nom utilisateur</span>
-								<span class="item__info">En ligne, en jeu</span>
-							</button>
-						</div> -->
-
-					<!-- case 4 : menu utilisateur (onclick sur username et sur user pic )-->
-					<!-- <div class="chatbox__list">
-						<button type="button" class="chatbox__item__btn">
+					<!-- <div class="chat__list ">
+						<button type="button" class="btn-heart-list">
 							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
 								<path fill-rule="evenodd"
 									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
 							</svg>
-							<span class="item__title ">Ajouter comme ami</span>
+							<span class="list__title ">Nom utilisateur</span>
+							<span class="list__info">En ligne, en jeu</span>
 						</button>
-						<button type="button" class="chatbox__item__btn">
+						<button type="button" class="btn-heart-list">
 							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
 								<path fill-rule="evenodd"
 									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
 							</svg>
-							<span class="item__title ">Voir son profil</span>
-						</button>
-						<button type="button" class="chatbox__item__btn">
-							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-							</svg>
-							<span class="item__title ">Bloquer</span>
+							<span class="list__title ">Nom utilisateur</span>
+							<span class="list__info">En ligne, en jeu</span>
 						</button>
 					</div> -->
+
+					<!-- case 4 : menu utilisateur (onclick sur username et sur user pic )-->
+					<div class="chat__list">
+						<button type="button" class="btn-heart-list">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="list__title ">Ajouter comme ami</span>
+						</button>
+						<button type="button" class="btn-heart-list">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="list__title ">Voir son profil</span>
+						</button>
+						<button type="button" class="btn-heart-list">
+							<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-heart-fill " viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+							</svg>
+							<span class="list__title ">Bloquer</span>
+						</button>
+					</div>
 
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-	<!-- Bootstrap JS -->
+
+	<!-- Bootstrap JS (just before body closing tag) -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+		</script>
 </body>
 <!-- <script src="index.js"></script> -->
 
